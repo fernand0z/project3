@@ -1,13 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 const outputDirectory = '../dist';
 
 module.exports = {
   entry: './src/client/index.js',
   mode: 'development',
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, outputDirectory),
@@ -46,6 +47,8 @@ module.exports = {
   devServer: {
     port: 3000,
     open: true,
+    hot: true,
+    contentBase: path.join(__dirname, '../dist'),
     proxy: {
       '/api': 'http://localhost:3001'
     }
@@ -55,6 +58,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../src/client/public/index.html'),
       // favicon: './public/favicon.ico'
-    })
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };
