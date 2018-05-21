@@ -2,13 +2,18 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
+
 
 const outputDirectory = '../dist';
 
 module.exports = {
-  entry: './src/client/index.js',
   mode: 'development',
   devtool: 'inline-source-map',
+  entry: [
+    require.resolve('react-error-overlay'),
+    './src/client/index.js'
+  ],
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, outputDirectory),
@@ -48,10 +53,16 @@ module.exports = {
     port: 3000,
     open: true,
     hot: true,
+    quiet: true,
+    overlay: {
+      warnings: true,
+      errors: true
+    },
     contentBase: path.join(__dirname, '../dist'),
     proxy: {
       '/api': 'http://localhost:3001'
-    }
+    },
+    before(app) { app.use(errorOverlayMiddleware()); }
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
