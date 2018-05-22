@@ -27,15 +27,16 @@ module.exports = {
         exclude: /node_modules/,
         options:
           {
-            "presets": [
-              "env",
-              "react"
+            'presets': [
+              'env',
+              'react'
             ],
-            "plugins": [
-              "transform-runtime",
-              "transform-class-properties",
-              "transform-react-display-name",
-              "transform-object-rest-spread"
+            'plugins': [
+              'react-hot-loader/babel',
+              'transform-runtime',
+              'transform-class-properties',
+              'transform-react-display-name',
+              'transform-object-rest-spread'
             ]
           }
       },
@@ -51,7 +52,7 @@ module.exports = {
   },
   devServer: {
     port: 3000,
-    open: true,
+    open: false,
     hot: true,
     quiet: true,
     overlay: {
@@ -59,9 +60,10 @@ module.exports = {
       errors: true
     },
     contentBase: path.join(__dirname, '../dist'),
-    proxy: {
-      '/api': 'http://localhost:3001'
-    },
+    proxy: [{
+      context: ['/login', '/api'],
+      target: 'http://localhost:3001',
+    }],
     before(app) { app.use(errorOverlayMiddleware()); }
   },
   plugins: [
