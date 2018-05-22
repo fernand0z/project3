@@ -11,7 +11,8 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: [
-    require.resolve('react-error-overlay'),
+    // require.resolve('react-error-overlay'),
+    'webpack-hot-middleware/client',
     './src/client/index.js'
   ],
   output: {
@@ -59,20 +60,22 @@ module.exports = {
       warnings: true,
       errors: true
     },
+    historyApiFallback: true,
     contentBase: path.join(__dirname, '../dist'),
     proxy: [{
-      context: ['/login', '/api'],
+      context: ['/login', '/api', '/logout'],
       target: 'http://localhost:3001',
     }],
-    before(app) { app.use(errorOverlayMiddleware()); }
+    // before(app) { app.use(errorOverlayMiddleware()); }
   },
   plugins: [
-    new CleanWebpackPlugin([outputDirectory]),
+    new CleanWebpackPlugin([outputDirectory], { root: path.join(__dirname, '..') }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../src/client/public/index.html'),
       // favicon: './public/favicon.ico'
     }),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
   ]
 };

@@ -11,19 +11,29 @@ if(process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
   // logging
   app.use(require('morgan')('dev'));
+
+  // development hot reloading
+  const webpack = require('webpack');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const config = require('../../config/webpack.dev.js');
+  const compiler = webpack(config);
+  app.use(webpackDevMiddleware(compiler, {
+    publicPath: config.output.publicPath
+  }));
+
+  app.use(require("webpack-hot-middleware")(compiler));
 }
 
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static(path.join(__dirname, '../../dist')));
 
 // authentication routes
 app.use(require('./auth/authRoutes'));
 
 
-app.get('/api/username', (req, res) =>
-  res.send({ username: 'hi' })
-);
-
-app.get('/', (req, res) => res.send('server online'));
+// serve react app
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../dist/index.html'));
+});
 
 app.listen(PORT, () => {
   console.log('Listening on port http://localhost:' + PORT);

@@ -14,9 +14,9 @@ router.use(require('express-session')({
 router.use(passport.initialize());
 router.use(passport.session());
 
-router.get('/login', (req, res) => {
-  res.send(`<a href="/login/google">Log In with Google</a>`);
-});
+// router.get('/login', (req, res) => {
+//   res.send(`<a href="/login/google">Log In with Google</a>`);
+// });
 
 router.get('/login/google',
   passport.authenticate('google', { scope: SCOPES }));
