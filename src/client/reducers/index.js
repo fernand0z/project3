@@ -5,6 +5,9 @@ const state = {
   user: { name: "", email: ""}
 }
 
-
+function isAuthenticated(state, action) {
+  switch(action.type):
+    case ""
+}
 
 export default reducers;

@@ -16,6 +16,10 @@ const Login = () => (
   <a href="/login/google">Login with Google with Reactapp!</a>
 )
 
+const Profile = () => (
+  <h1>User info here</h1>
+)
+
 const NotFound = () => (
   <h1>404 not found</h1>
 )
@@ -37,6 +41,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
+            <Route path="/profile" component={Profile} />
             <Route component={NotFound} />
           </Switch>
 

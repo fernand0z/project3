@@ -37,7 +37,7 @@
     "build": "webpack --config ./config/webpack.dev.js --progress --colors",
     "client": "webpack-dev-server --config ./config/webpack.dev.js",
     "server": "nodemon src/server/server.js",
-    "start": "concurrently \"yarn server\" \"yarn client\""
+    "start": "node src/server/server.js"
   },
   "dependencies": {
     "axios": "^0.18.0",

@@ -25,7 +25,7 @@ router.get('/login/google/return',
   passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
     // console.log(req.user);
-    res.redirect('/api/profile');
+    res.redirect('/profile');
   });
 
 router.get('/logout', (req, res) => {
