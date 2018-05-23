@@ -1,14 +1,14 @@
-import axios from 'axios';
+import API from '../utils/API';
 
-export const CHECK_AUTH = 'CHECK_AUTH';
+export const CHECK_AUTH_REQUEST = 'CHECK_AUTH_REQUEST';
 export const CHECK_AUTH_SUCCESS = 'CHECK_AUTH_SUCCESS';
 export const CHECK_AUTH_FAILURE = 'CHECK_AUTH_FAILURE';
 
 
 // authentication actions
-export function checkAuth() {
+export function checkAuthRequest() {
   return {
-    type: CHECK_AUTH
+    type: CHECK_AUTH_REQUEST
   }
 }
 
@@ -30,8 +30,8 @@ export function checkAuthFailure(error) {
 export function getUser() {
   return (dispatch, getState) => {
     if(getState().isAuthenticated) { return; }
-    dispatch(checkAuth());
-    axios.get('/api/profile')
+    dispatch(checkAuthRequest());
+    API.getUser()
       .then(res => res.data)
       .then(user => dispatch(checkAuthSuccess(user)))
       .catch(err => dispatch(checkAuthFailure(err)));

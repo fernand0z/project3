@@ -23,6 +23,7 @@ function user(state = {}, action) {
     case ActionTypes.CHECK_AUTH_SUCCESS:
       return action.user;
     case ActionTypes.CHECK_AUTH_FAILURE:
+      console.log(action.error);
       return {};
     default:
       return state;

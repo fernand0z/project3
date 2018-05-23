@@ -45,6 +45,7 @@ class App extends React.Component {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/login">Login</Link></li>
+            <li><a href="/logout">Logout</a></li>
             <li><Link to="/profile">Profile</Link></li>
             <li><Link to="/reagurieag">should break</Link></li>
           </ul>
