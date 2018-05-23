@@ -8,8 +8,6 @@ import {
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import axios from 'axios';
-
-
 import { getUser } from '../actions';
 
 const Home = () => (
@@ -20,12 +18,16 @@ const Login = () => (
   <a href="/login/google">Login with Google with Reactapp!</a>
 )
 
-const Profile = (props) => (
-  <h1>{props.user.name}</h1>
-)
+const Profile = (props) => {
+  if(props.user.name) {
+    return <h1>{props.user.name}</h1>;
+  } else {
+    return <h1>Not logged in</h1>
+  }
+}
 
 const ViewProfile = connect(
-  state => ({ user: state.user })
+  state => state
 )(Profile);
 
 
@@ -35,33 +37,23 @@ const NotFound = () => (
 
 class App extends React.Component {
   componentWillMount() {
-    this.props.dispatch(getUser())
+    this.props.dispatch(getUser());
   }
 
   render() {
     return (
       <Router>
         <div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/login">Login</Link></li>
-            <li><a href="/logout">Logout</a></li>
-            <li><Link to="/profile">Profile</Link></li>
-            <li><Link to="/reagurieag">should break</Link></li>
-          </ul>
-
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/profile" component={ViewProfile} />
             <Route component={NotFound} />
           </Switch>
-
         </div>
       </Router>
     );
   }
 }
-
 
 export default hot(module)(connect()(App));
