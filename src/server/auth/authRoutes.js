@@ -25,7 +25,7 @@ router.get('/login/google/return',
   passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
     // console.log(req.user);
-    res.redirect('/profile');
+    res.redirect('/');
   });
 
 router.get('/logout', (req, res) => {
@@ -33,7 +33,18 @@ router.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-router.get('/api/profile', (req, res) => {
+function requireAuth(req, res, next) {
+  if(!req.user) {
+    res.status(401).end();
+  } else {
+    next();
+  }
+}
+
+// require quth middleware
+router.use('/api', requireAuth);
+
+router.get('/api/user', (req, res) => {
   res.json(req.user);
 });
 

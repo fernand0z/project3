@@ -21,7 +21,7 @@ if(process.env.NODE_ENV !== 'production') {
     publicPath: config.output.publicPath
   }));
 
-  app.use(require("webpack-hot-middleware")(compiler));
+  app.use(require('webpack-hot-middleware')(compiler));
 }
 
 // serve static files
