@@ -4,7 +4,8 @@ import * as ActionTypes from '../actions';
 // state shape
 const state = {
   isAuthenticated: false,
-  user: {}
+  user: {},
+  searchResult: {}
 }
 
 function isAuthenticated(state = false, action) {

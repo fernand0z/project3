@@ -4,6 +4,9 @@ export const CHECK_AUTH_REQUEST = 'CHECK_AUTH_REQUEST';
 export const CHECK_AUTH_SUCCESS = 'CHECK_AUTH_SUCCESS';
 export const CHECK_AUTH_FAILURE = 'CHECK_AUTH_FAILURE';
 
+export const SEARCH_SHOW_REQUEST = 'SEARCH_SHOW_REQUEST';
+export const SEARCH_SHOW_SUCCESS = 'SEARCH_SHOW_SUCCESS';
+export const SEARCH_SHOW_FAILURE = 'SEARCH_SHOW_FAILURE';
 
 // authentication actions
 export function checkAuthRequest() {
@@ -37,3 +40,35 @@ export function getUser() {
       .catch(err => dispatch(checkAuthFailure(err)));
     }
 }
+
+export function searchShowRequest(query) {
+  return {
+    type: SEARCH_SHOW_REQUEST,
+    query
+  }
+}
+
+export function searchShowSucesss(json) {
+  return {
+    type: SEARCH_SHOW_SUCCESS,
+    json
+  }
+}
+
+export function searchShowFailure(error) {
+  return {
+    type: SEARCH_SHOW_FAILURE,
+    error
+  }
+}
+
+export function searchShow(query) {
+  return (dispatch) => {
+    dispatch(searchShowRequest());
+    API.searchShow(query)
+      .then(res => console.log(res));
+  }
+}
+
+
+export function
