@@ -48,7 +48,7 @@ export function searchShowRequest(query) {
   }
 }
 
-export function searchShowSucesss(json) {
+export function searchShowSuccess(json) {
   return {
     type: SEARCH_SHOW_SUCCESS,
     json
@@ -69,6 +69,3 @@ export function searchShow(query) {
       .then(res => console.log(res));
   }
 }
-
-
-export function
