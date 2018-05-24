@@ -48,10 +48,10 @@ export function searchShowRequest(query) {
   }
 }
 
-export function searchShowSuccess(json) {
+export function searchShowSuccess(shows) {
   return {
     type: SEARCH_SHOW_SUCCESS,
-    json
+    shows
   }
 }
 
@@ -65,7 +65,8 @@ export function searchShowFailure(error) {
 export function searchShow(query) {
   return (dispatch) => {
     dispatch(searchShowRequest());
-    API.searchShow(query)
-      .then(res => console.log(res));
+    API.searchShows(query)
+      .then(shows => dispatch(searchShowSuccess(shows)))
+      .catch(err => dispatch(searchShowFailure(err)));
   }
 }

@@ -3,36 +3,26 @@ import * as ActionTypes from '../actions';
 
 // state shape
 const state = {
-  isAuthenticated: false,
-  user: {},
-  searchResult: {}
+  user: { exists: false, updating: false /*...user object from server*/ },
+  search: { updating: false, data: [] },
+  trackedShows: [],
+  episodes: [],
 }
 
-function isAuthenticated(state = false, action) {
+function user(state = { exists: false, updating: false }, action) {
   switch(action.type) {
+    case ActionTypes.CHECK_AUTH_REQUEST:
+      return {...state, updating: true };
     case ActionTypes.CHECK_AUTH_SUCCESS:
-      return true;
+      return { exists: true, updating: false, ...action.user };
     case ActionTypes.CHECK_AUTH_FAILURE:
-      return false;
-    default:
-      return state;
-  }
-}
-
-function user(state = {}, action) {
-  switch(action.type) {
-    case ActionTypes.CHECK_AUTH_SUCCESS:
-      return action.user;
-    case ActionTypes.CHECK_AUTH_FAILURE:
-      console.log(action.error);
-      return {};
+      return { exists: false, updating: false };
     default:
       return state;
   }
 }
 
 const reducers = combineReducers({
-  isAuthenticated,
   user
 });
 
