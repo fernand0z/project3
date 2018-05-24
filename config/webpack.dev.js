@@ -23,7 +23,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         options:
@@ -33,6 +33,7 @@ module.exports = {
               'react'
             ],
             'plugins': [
+              'emotion',
               'react-hot-loader/babel',
               'transform-runtime',
               'transform-class-properties',

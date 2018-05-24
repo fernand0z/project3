@@ -26,14 +26,14 @@ if(process.env.NODE_ENV !== 'production') {
 }
 
 // serve static files
-app.use(express.static(path.join(__dirname, '../../dist')));
+app.use(express.static(path.join(__dirname, '../client')));
 
 // authentication routes
 app.use(require('./auth/authRoutes'));
 
 // all other routes is the react app
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../dist/index.html'));
+  res.sendFile(path.join(__dirname, '../client/public/index.html'));
 });
 
 app.listen(PORT, () => {

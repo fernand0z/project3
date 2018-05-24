@@ -9,8 +9,10 @@ import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { getUser } from '../actions';
+import {Home} from './Home';
 
-const Home = () => (
+
+const Home1 = () => (
   <h1>Homepage</h1>
 )
 
@@ -44,6 +46,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+          <Home />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
