@@ -32,7 +32,7 @@ export function checkAuthFailure(error) {
 // async
 export function getUser() {
   return (dispatch, getState) => {
-    if(getState().isAuthenticated) { return; }
+    if(getState().user.exists) { return; }
     dispatch(checkAuthRequest());
     API.getUser()
       .then(res => res.data)
