@@ -5,7 +5,7 @@
   height: 100%;
   display: flex;
   /* flex-flow: row wrap; */
-  padding: 30%;
+  padding-bottom: 20%;
   padding-left: 3%;
   padding-right: 3%;
   justify-content: space-around;
@@ -13,4 +13,5 @@
   overflow: auto;
   background-image: url("../images/static.gif");
   background-repeat: repeat;
+  
 }

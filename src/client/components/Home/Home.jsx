@@ -9,11 +9,11 @@ export default class Home extends Component {
         return (
         <React.Fragment>
         <Wrapper>
-        <div>
+        
             <Navbar>
         Navbar should be above (with button)
         </Navbar>
-        </div>
+        
         </Wrapper>
         </React.Fragment>
         );
