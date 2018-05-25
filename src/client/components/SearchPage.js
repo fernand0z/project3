@@ -51,7 +51,7 @@ class SearchPage extends React.PureComponent {
 
         {trackedShows.map(show => {
           // const show = kv[1];
-          return <p>{show.name} has {Object.keys(show.episodes).length} episodes</p>
+          return <p key={show.id}>{show.name} has {Object.keys(show.episodes).length} episodes</p>
         })}
       </div>
     )
