@@ -10,7 +10,7 @@ const Navbar = props => (
       
         <h1>TV App Name</h1>
         
-        <form action="/login/google">
+        <form className='bounce' action="/login/google">
           <input type="submit" value="Sign-in with Google" />
         </form>
       </li>
