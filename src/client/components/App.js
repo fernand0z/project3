@@ -9,12 +9,17 @@ import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { getUser } from '../actions';
-import {Home} from './Home';
+import Home from './Home';
+import Wrapper from './Wrapper';
 
-
-const Home1 = () => (
-  <h1>Homepage</h1>
-)
+// const Home = () => (
+//   <div>
+//     <h1>Homepage</h1>
+//     <form action="/login/google">
+//       <input type="submit" value="Sign-in with Google" />
+//     </form>
+//   </div>
+// )
 
 const Login = () => (
   <a href="/login/google">Login with Google with Reactapp!</a>
@@ -46,13 +51,14 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Home />
+          <Wrapper />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/profile" component={ViewProfile} />
             <Route component={NotFound} />
           </Switch>
+        
         </div>
       </Router>
     );

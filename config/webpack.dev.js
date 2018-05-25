@@ -33,7 +33,6 @@ module.exports = {
               'react'
             ],
             'plugins': [
-              'emotion',
               'react-hot-loader/babel',
               'transform-runtime',
               'transform-class-properties',

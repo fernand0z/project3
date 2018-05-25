@@ -1,0 +1,16 @@
+.wrapper {
+  /* padding-top: 50px; */
+  /* background: linear-gradient(to right, #ff512f, #b9135e); */
+  /* background: linear-gradent(to right, #2196f3, #f44336); */
+  height: 100%;
+  display: flex;
+  /* flex-flow: row wrap; */
+  padding: 30%;
+  padding-left: 3%;
+  padding-right: 3%;
+  justify-content: space-around;
+  align-content: flex-start;
+  overflow: auto;
+  background-image: url("../images/static.gif");
+  background-repeat: repeat;
+}
