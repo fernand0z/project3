@@ -8,10 +8,11 @@ export default class Home extends Component {
     render() {
         return (
         <React.Fragment>
+            
         <Wrapper>
         
             <Navbar>
-        Navbar should be above (with button)
+        <span className='bounceInRight'> Navbar should be above (with button)</span>
         </Navbar>
         
         </Wrapper>

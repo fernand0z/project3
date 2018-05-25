@@ -1,18 +1,26 @@
 import React from "react";
 import "./navbar.css";
+import { bounce } from 'react-animations';
+import styled, { keyframes } from 'styled-components';
 
+const bounceAnimation = keyframes`${bounce}`;
+
+const BouncyDiv = styled.div`
+  color: white;
+`;
 
 
 const Navbar = props => (
   <nav className = 'navbar'>
     <ul>
       <li className = 'brand'>
-      
+      <BouncyDiv>
         <h1>TV App Name</h1>
         
-        <form className='bounce' action="/login/google">
+        <form className='bounceInRight' action="/login/google">
           <input type="submit" value="Sign-in with Google" />
         </form>
+        </BouncyDiv>
       </li>
     </ul>
   </nav>    

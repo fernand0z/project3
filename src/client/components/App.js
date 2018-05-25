@@ -11,8 +11,8 @@ import axios from 'axios';
 import { getUser } from '../actions';
 import Home from './Home';
 import Wrapper from './Wrapper';
+import styled from 'styled-components';
 
-<<<<<<< HEAD
 // const Home = () => (
 //   <div>
 //     <h1>Homepage</h1>
@@ -21,13 +21,11 @@ import Wrapper from './Wrapper';
 //     </form>
 //   </div>
 // )
-=======
 import SearchPage from '../components/SearchPage';
 
-const Home = () => (
-  <h1>Homepage</h1>
-)
->>>>>>> upstream/master
+// const Home = () => (
+//   <h1>Homepage</h1>
+// )
 
 const Login = () => (
   <a href="/login/google">Login with Google with Reactapp!</a>
@@ -45,6 +43,8 @@ const ViewProfile = connect(
   state => state
 )(Profile);
 
+const RedText = styled.div`color: red`;
+const Test = () => <RedText>testesrgeragreag</RedText>
 
 const NotFound = () => (
   <h1>404 not found</h1>
