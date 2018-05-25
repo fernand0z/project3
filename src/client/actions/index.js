@@ -48,10 +48,10 @@ export function searchShowRequest(query) {
   }
 }
 
-export function searchShowSuccess(shows) {
+export function searchShowSuccess(data) {
   return {
     type: SEARCH_SHOW_SUCCESS,
-    shows
+    data
   }
 }
 

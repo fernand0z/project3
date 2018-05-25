@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { debounce } from 'lodash';
 import API from '../utils/API';
+import withSearchShows from '../containers/withSearchShows';
 
 class SearchPage extends React.PureComponent {
   constructor(props) {
@@ -10,11 +11,6 @@ class SearchPage extends React.PureComponent {
     this.searchShows = debounce(props.searchShows, 500);
   }
 
-  // searchShows(query) {
-  //   API.searchShows(query)
-  //     .then(shows => this.setState({ shows }));
-  // }
-
   handleChange = (e) => {
     this.setState({ query: e.target.value });
     this.searchShows(e.target.value);
@@ -22,25 +18,31 @@ class SearchPage extends React.PureComponent {
 
   render() {
     const { query } = this.state;
-    const { searchResult } = this.props;
-    console.log(this.props);
+    const { searchResult, updating } = this.props;
+
     return (
       <div>
         <h1>SearchPage</h1>
         <input type="text"
           value={ query }
           onChange={ this.handleChange }
-          onKeyPress={ this.handlePress } />
+        />
         <ul>
-          {searchResult.map(s => (
-            <p key={s.id}>
-              <a href={s.url} target="_blank">{s.name}</a>
-            </p>)
-          )}
+          {
+            updating ?
+              <h3>PUT SPINNER HERE</h3> :
+              searchResult.map(show =>
+                (
+                  <p key={ show.id }>
+                    <a href={ show.url } target="_blank">{ show.name }</a>
+                  </p>
+                )
+              )
+          }
         </ul>
       </div>
     )
   }
 }
 
-export default SearchPage;
+export default withSearchShows(SearchPage);

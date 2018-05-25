@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { searchShow } from '../actions';
-import SearchPage from '../components/SearchPage';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    searchResult: state.searchResult
+    searchResult: state.searchResult.data,
+    updating: state.searchResult.updating
   }
 }
 
@@ -14,9 +14,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const SearchContainer = connect(
+export default (component) => connect(
   mapStateToProps,
   mapDispatchToProps
-)(SearchPage);
-
-export default SearchContainer;
+)(component);

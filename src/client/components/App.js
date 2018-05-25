@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { getUser } from '../actions';
 
-import SearchContainer from '../containers/SearchContainer'
+import SearchPage from '../components/SearchPage';
 
 const Home = () => (
   <h1>Homepage</h1>
@@ -50,7 +50,7 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/profile" component={ViewProfile} />
-            <Route path="/search" component={SearchContainer} />
+            <Route path="/search" component={SearchPage} />
             <Route component={NotFound} />
           </Switch>
         </div>
