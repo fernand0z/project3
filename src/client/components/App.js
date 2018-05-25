@@ -12,6 +12,7 @@ import { getUser } from '../actions';
 import Home from './Home';
 import Wrapper from './Wrapper';
 
+<<<<<<< HEAD
 // const Home = () => (
 //   <div>
 //     <h1>Homepage</h1>
@@ -20,6 +21,13 @@ import Wrapper from './Wrapper';
 //     </form>
 //   </div>
 // )
+=======
+import SearchPage from '../components/SearchPage';
+
+const Home = () => (
+  <h1>Homepage</h1>
+)
+>>>>>>> upstream/master
 
 const Login = () => (
   <a href="/login/google">Login with Google with Reactapp!</a>
@@ -56,6 +64,7 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/profile" component={ViewProfile} />
+            <Route path="/search" component={SearchPage} />
             <Route component={NotFound} />
           </Switch>
         

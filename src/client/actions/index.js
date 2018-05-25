@@ -4,6 +4,9 @@ export const CHECK_AUTH_REQUEST = 'CHECK_AUTH_REQUEST';
 export const CHECK_AUTH_SUCCESS = 'CHECK_AUTH_SUCCESS';
 export const CHECK_AUTH_FAILURE = 'CHECK_AUTH_FAILURE';
 
+export const SEARCH_SHOW_REQUEST = 'SEARCH_SHOW_REQUEST';
+export const SEARCH_SHOW_SUCCESS = 'SEARCH_SHOW_SUCCESS';
+export const SEARCH_SHOW_FAILURE = 'SEARCH_SHOW_FAILURE';
 
 // authentication actions
 export function checkAuthRequest() {
@@ -29,11 +32,41 @@ export function checkAuthFailure(error) {
 // async
 export function getUser() {
   return (dispatch, getState) => {
-    if(getState().isAuthenticated) { return; }
+    if(getState().user.exists) { return; }
     dispatch(checkAuthRequest());
     API.getUser()
       .then(res => res.data)
       .then(user => dispatch(checkAuthSuccess(user)))
       .catch(err => dispatch(checkAuthFailure(err)));
     }
+}
+
+export function searchShowRequest(query) {
+  return {
+    type: SEARCH_SHOW_REQUEST,
+    query
+  }
+}
+
+export function searchShowSuccess(data) {
+  return {
+    type: SEARCH_SHOW_SUCCESS,
+    data
+  }
+}
+
+export function searchShowFailure(error) {
+  return {
+    type: SEARCH_SHOW_FAILURE,
+    error
+  }
+}
+
+export function searchShow(query) {
+  return (dispatch) => {
+    dispatch(searchShowRequest());
+    API.searchShows(query)
+      .then(shows => dispatch(searchShowSuccess(shows)))
+      .catch(err => dispatch(searchShowFailure(err)));
+  }
 }
