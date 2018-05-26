@@ -11,6 +11,7 @@ import axios from 'axios';
 import { getUser } from '../actions';
 
 import SearchPage from '../components/SearchPage';
+import ProfilePage from '../components/ProfilePage';
 
 const Home = () => (
   <h1>Homepage</h1>
@@ -19,19 +20,6 @@ const Home = () => (
 const Login = () => (
   <a href="/login/google">Login with Google with Reactapp!</a>
 )
-
-const Profile = (props) => {
-  if(props.user.name) {
-    return <h1>{props.user.name}</h1>;
-  } else {
-    return <h1>Not logged in</h1>
-  }
-}
-
-const ViewProfile = connect(
-  state => state
-)(Profile);
-
 
 const NotFound = () => (
   <h1>404 not found</h1>
@@ -49,7 +37,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
-            <Route path="/profile" component={ViewProfile} />
+            <Route path="/profile" component={ProfilePage} />
             <Route path="/search" component={SearchPage} />
             <Route component={NotFound} />
           </Switch>
