@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export class API {
+export default class API {
   static getUser() {
     return axios.get('api/user');
   }
@@ -13,7 +13,8 @@ export class API {
 
   static getEpisodes({ id }) {
     return axios.get(`http://api.tvmaze.com/shows/${id}/episodes`)
-      .then(episodes => mapToIds(episodes));
+      .then(res => res.data)
+      .then(episodes =>  mapToIds(episodes));
   }
 }
 

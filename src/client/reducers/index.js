@@ -3,7 +3,7 @@ import * as ActionTypes from '../actions';
 import { omit } from 'lodash';
 
 // state shape
-const state = {
+const stateShape = {
   user: { exists: false, updating: false /*...user object from server*/ },
   searchResult: { updating: false, data: [] },
   trackedShows: {

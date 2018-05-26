@@ -1,4 +1,4 @@
-import { API } from '../utils/API.js';
+import API from '../utils/API.js';
 
 export const GET_USER_REQUEST = 'GET_USER_REQUEST';
 export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
@@ -66,7 +66,8 @@ export function searchShowFailure(error) {
   }
 }
 
-export function searchShow(query) {
+// query is a string
+export function searchShows(query) {
   return (dispatch) => {
     dispatch(searchShowRequest());
     API.searchShows(query)
@@ -105,14 +106,16 @@ export function updateEpisodesSuccess({ id, episodes }) {
   }
 }
 
-export function updateEpisodesFailure(error) {
+export function updateEpisodesFailure({ id, error }) {
   return {
     type: UPDATE_EPISODES_FAILURE,
+    id,
     error
   }
 }
 
 // TRACK_SHOW then UPDATE_EPISODES for that show
+// show is the json from tvmaze
 export function trackNewShow(show) {
   return (dispatch, getState) => {
     dispatch(trackShow(show));
@@ -124,6 +127,6 @@ export function trackNewShow(show) {
           episodes
         }
       )))
-      .catch(err => dispatch(updateEpisodesFailure(err)));
+      .catch(err => dispatch(updateEpisodesFailure({ id: show.id, err })));
   }
 }
