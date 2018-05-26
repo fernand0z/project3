@@ -37,11 +37,7 @@ export function getUserFailure(error) {
 export function getUser() {
   return (dispatch, getState) => {
     if(getState().user.exists) { return; }
-<<<<<<< HEAD
     dispatch(getUserRequest());
-=======
-    dispatch(checkAuthRequest());
->>>>>>> b3545d375f26489a3b3adcec9027db8c29f21b6d
     API.getUser()
       .then(res => res.data)
       .then(user => dispatch(getUserSuccess(user)))
