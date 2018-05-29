@@ -23,7 +23,7 @@ import styled from 'styled-components';
 import SearchPage from '../components/SearchPage';
 import ProfilePage from '../components/ProfilePage';
 import Modal from '../components/Modal.js';
-import styled from 'styled-components';
+
 
 // const Home = () => (
 //   <h1>Homepage</h1>
