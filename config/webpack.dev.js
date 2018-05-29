@@ -33,11 +33,13 @@ module.exports = {
               'react'
             ],
             'plugins': [
+              'babel-plugin-styled-components',
               'react-hot-loader/babel',
               'transform-runtime',
               'transform-class-properties',
               'transform-react-display-name',
-              'transform-object-rest-spread'
+              'transform-object-rest-spread',
+              // 'transform-es2015-template-literals'
             ]
           }
       },

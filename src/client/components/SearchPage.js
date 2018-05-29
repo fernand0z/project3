@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { debounce } from 'lodash';
-import API from '../utils/API';
-import withSearchShows from '../containers/withSearchShows';
+import { searchShows, trackNewShow } from '../actions';
 
 class SearchPage extends React.PureComponent {
   constructor(props) {
@@ -16,10 +15,15 @@ class SearchPage extends React.PureComponent {
     this.searchShows(e.target.value);
   }
 
+  addShow(show) {
+    this.props.trackNewShow(show);
+  }
+
   render() {
     const { query } = this.state;
-    const { searchResult, updating } = this.props;
-
+    let { searchResult, updating, trackedShows } = this.props;
+    // convert object to array
+    trackedShows = Object.values(trackedShows);
     return (
       <div>
         <h1>SearchPage</h1>
@@ -35,14 +39,41 @@ class SearchPage extends React.PureComponent {
                 (
                   <p key={ show.id }>
                     <a href={ show.url } target="_blank">{ show.name }</a>
+                    <button
+                      onClick={() => this.addShow(show)}>
+                      Add
+                    </button>
                   </p>
                 )
               )
           }
         </ul>
+
+        {trackedShows.map(show => {
+          // const show = kv[1];
+          return <p key={show.id}>{show.name} has {Object.keys(show.episodes).length} episodes</p>
+        })}
       </div>
     )
   }
 }
 
-export default withSearchShows(SearchPage);
+const mapStateToProps = (state, ownProps) => {
+  return {
+    searchResult: state.searchResult.data,
+    updating: state.searchResult.updating,
+    trackedShows: state.trackedShows
+  }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    searchShows: (query) => dispatch(searchShows(query)),
+    trackNewShow: (show) => dispatch(trackNewShow(show))
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchPage);
