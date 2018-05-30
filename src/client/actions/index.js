@@ -14,6 +14,10 @@ export const UPDATE_EPISODES_REQUEST = 'UPDATE_EPISODES_REQUEST';
 export const UPDATE_EPISODES_SUCCESS = 'UPDATE_EPISODES_SUCCESS';
 export const UPDATE_EPISODES_FAILURE = 'UPDATE_EPISODES_FAILURE';
 
+export const MARK_EPISODE_SEEN = 'MARK_EPISODE_SEEN';
+export const MARK_EPISODE_UNSEEN = 'MARK_EPISODE_UNSEEN';
+export const TOGGLE_EPISODE = 'TOGGLE_EPISODE';
+
 export function getUserRequest() {
   return {
     type: GET_USER_REQUEST
@@ -63,6 +67,14 @@ export function searchShowFailure(error) {
   return {
     type: SEARCH_SHOW_FAILURE,
     error
+  }
+}
+
+function retryRateLimiting(retryDispatch, failureDispatch) {
+  return err => {
+    if(err.status === 429) {
+
+    }
   }
 }
 
@@ -118,6 +130,8 @@ export function updateEpisodesFailure({ id, error }) {
 // show is the json from tvmaze
 export function trackNewShow(show) {
   return (dispatch, getState) => {
+    const { trackedShows } = getState();
+
     dispatch(trackShow(show));
     dispatch(updateEpisodesRequest(show));
     API.getEpisodes(show)
@@ -127,6 +141,36 @@ export function trackNewShow(show) {
           episodes
         }
       )))
-      .catch(err => dispatch(updateEpisodesFailure({ id: show.id, err })));
+      .catch(err => dispatch(updateEpisodesFailure(
+        {
+          id: show.id,
+          err
+        }
+      )));
+
+  }
+}
+
+export function markEpisodeSeen({ showId, episodeId }) {
+  return {
+    type: MARK_EPISODE_SEEN,
+    showId,
+    episodeId
+  }
+}
+
+export function markEpisodeUnseen({ showId, episodeId }) {
+  return {
+    type: MARK_EPISODE_UNSEEN,
+    showId,
+    episodeId
+  }
+}
+
+export function toggleEpisode({ showId, episodeId }) {
+  return {
+    type: TOGGLE_EPISODE,
+    showId,
+    episodeId
   }
 }
