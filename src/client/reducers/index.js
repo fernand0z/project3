@@ -101,6 +101,56 @@ function trackedShows(state = {}, action) {
       }
     }
 
+    case ActionTypes.MARK_EPISODE_SEEN: {
+      const show = state[action.showId];
+      const newWatched = new Set(show.watchedEpisodes);
+      newWatched.add(action.episodeId);
+
+      const updatedShow = {
+        ...show,
+        watchedEpisodes: [...newWatched]
+      }
+
+      return {
+        ...state,
+        [action.showId]: updatedShow
+      }
+    }
+
+    case ActionTypes.MARK_EPISODE_UNSEEN: {
+      const show = state[action.showId];
+      const newWatched = new Set(show.watchedEpisodes);
+      newWatched.delete(action.episodeId);
+
+      const updatedShow = {
+        ...show,
+        watchedEpisodes: [...newWatched]
+      }
+
+      return {
+        ...state,
+        [action.showId]: updatedShow
+      }
+    }
+
+    case ActionTypes.TOGGLE_EPISODE: {
+      const show = state[action.showId];
+      const newWatched = new Set(show.watchedEpisodes);
+      if(!newWatched.delete(action.episodeId)) {
+        newWatched.add(action.episodeId);
+      }
+
+      const updatedShow = {
+        ...show,
+        watchedEpisodes: [...newWatched]
+      }
+
+      return {
+        ...state,
+        [action.showId]: updatedShow
+      }
+    }
+
     default:
       return state;
 
