@@ -1,0 +1,36 @@
+.card {
+  /* background: linear-gradient(to right, #feac5e, #c779d0, #4bc0c8); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: rgba(50, 50, 250, .05);
+  position: relative;
+  background-size: cover;
+  background-position: 50%;
+  height: 250px;
+  width: 325px;
+  margin: 8px 25px;
+  border: 8px solid #f1f1f1;
+  /* border-radius: 5px; */
+  cursor: pointer;
+  /* box-shadow: 3px 3px 6px #999, 0 3px 6px #999; */
+}
+
+.card > .img-container > img {
+  max-height: 100%;
+  /* max-width: 100%; */
+  margin-top: 05%; 
+  object-fit: container;
+}
+
+.card > .img-container {
+  overflow: hidden;
+  text-align: center;
+  background: rgba(250, 250, 250, .2);
+  height: 100%;
+}
+
+/* 
+.secondary-heading {
+  font-size: 18px;
+  text-align:right;
+  width: 150%;
+} */
+

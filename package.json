@@ -42,6 +42,7 @@
     "devServer": "concurrently \"yarn server\" && \"yarn client\""
   },
   "dependencies": {
+    "animate.css": "^3.6.1",
     "axios": "^0.18.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
@@ -51,13 +52,15 @@
     "passport-google-oauth20": "^1.0.0",
     "react": "^16.3.2",
     "react-animations": "^1.0.0",
+    "react-dock": "^0.2.4",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
-    "styled-components": "^3.3.0"
+    "styled-components": "^3.3.0",
+    "tvmaze-api": "^0.3.0"
   },
   "nodemonConfig": {
     "watch": [
