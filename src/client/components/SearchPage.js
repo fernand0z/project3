@@ -104,7 +104,7 @@ padding-bottom: 0.2%;
 `;
 
 const SpinnerImg = styled.img`
-height: 150px;
+height: 75px;
 text-align: center;
 margin: auto;
 margin-top: 2%;
