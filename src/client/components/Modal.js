@@ -42,7 +42,7 @@ class Modal extends React.PureComponent {
     this.el = document.createElement('div');
 
     setInterval(() => this.setState(prevState => {
-      return { show: !prevState.show };
+      return { show: !prevState.show  };
     }), 3000);
   }
 
