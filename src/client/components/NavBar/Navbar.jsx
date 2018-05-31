@@ -1,54 +1,69 @@
 import React from "react";
-import "./navbar.css";
-import { bounce } from 'react-animations';
-import styled, { keyframes } from 'styled-components';
+// import "./navbar.css";
+import { bounce } from "react-animations";
+import styled, { keyframes } from "styled-components";
+import SearchPage from "../SearchPage";
+// import {Dock} from 'react-dock';
 
 const bounceAnimation = keyframes`${bounce}`;
 
-const BouncyDiv = styled.div`
+const Navbar = props => (
+  
+  <React.Fragment>
+    <StyledNav>    
+      <NavLeft>
+        Fun TV App Name
+      </NavLeft>
+      <NavGoogleDiv>
+        <NavGoogle href="/login/google">Sign in with Google</NavGoogle>
+      </NavGoogleDiv>
+
+      <SearchPage />
+      
+      </StyledNav>
+  
+  </React.Fragment>
+);
+
+// =====================================STYLED-COMPONENTS CSS=======================================
+
+const StyledNav = styled.div`
+  width: 100%;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  font-size: 20px;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  font-weight: bold;
   color: white;
+  box-shadow: 0 6px 20px 0 rgba(200, 200, 200, 0.5);
 `;
 
+const NavLeft = styled.div`
+  width: 20%;
+  font-size: 30px;
+  text-align: left;
+  float: left;
+  padding: 2% 0;
+  padding-left: 1%;
+`;
 
-const Navbar = props => (
-  <nav className = 'navbar'>
-    <ul>
-      <li className = 'brand'>
-      <BouncyDiv>
-        <h1>TV App Name</h1>
-        
-        <form className='bounceInRight' action="/login/google">
-          <input type="submit" value="Sign-in with Google" />
-        </form>
-        </BouncyDiv>
-      </li>
-    </ul>
-  </nav>    
+const NavGoogleDiv = styled.span`
+width: 20%;
+float: right;
+padding: 2.5% 0;
+padding-right: 1%
+`;
 
-)
+const NavGoogle = styled.a`
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 2%;
+  border-radius: 5px;
+  font-size: 20px;
+  text-align: right;
+  text-decoration: none;
+  float: right;
+  
+`;
+
 export default Navbar;
-
-{/*   
-    <div className="img-container">
-      <img alt={props.name} src={props.image} />
-    </div>
-    <div className="content">
-      <ul>
-        <li>
-          <strong>Name:</strong> {props.name}
-        </li>
-        <li>
-          <strong>Occupation:</strong> {props.occupation}
-        </li>
-        <li>
-          <strong>Location:</strong> {props.location}
-        </li>
-      </ul>
-    </div>
-    <span onClick={() => props.removeFriend(props.id)} className="remove">
-      𝘅
-    </span>
-  </div> */}
-;
-
-

@@ -1,15 +1,23 @@
 .navbar {
     padding: 2%;
     margin: auto;
-    color: white;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 60s infinite linear;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+         appearance: none;
+         -webkit-animation: bounceInUp 1s;         
 }
 
+
 .navbar li {
-    display: inline-block;
+    
     padding: 2% 0;
     width: 33.3%;
     text-align: center;
-    color: white;
+    /* color: white; */
 }
 
 
@@ -48,3 +56,14 @@
       .bounceInRight {
         animation-name: bounceInRight;
       }
+
+      @-webkit-keyframes hue {
+        from {
+          -webkit-filter: hue-rotate(0deg);
+        }
+      
+        to {
+          -webkit-filter: hue-rotate(-360deg);
+        }
+      }
+      

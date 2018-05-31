@@ -3,14 +3,17 @@
   /* background: linear-gradient(to right, #ff512f, #b9135e); */
   /* background: linear-gradent(to right, #2196f3, #f44336); */
   height: 100%;
-  display: flex;
-  /* flex-flow: row wrap; */
-  padding-bottom: 20%;
-  padding-left: 3%;
-  padding-right: 3%;
+  /* display: flex; */
+  flex-flow: row wrap;
+  padding-top: 2%;
+  padding-bottom: 50%;
+  width: 100%;
+  /* padding-left: 3%;
+  padding-right: 3%; *
+  /
   justify-content: space-around;
   align-content: flex-start;
-  overflow: auto;
+  /* overflow: auto; */
   background-image: url("../images/static.gif");
   background-repeat: repeat;
   

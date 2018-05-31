@@ -2,6 +2,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import styled, { keyframes, css } from 'styled-components';
 import { fadeIn, fadeOut, slideInRight, slideOutRight } from 'react-animations';
+import SearchPage from './SearchPage';
 
   // display: ${ props => props.display ? 'block' : 'none' };
 const Background = styled.div`
@@ -57,7 +58,8 @@ class Modal extends React.PureComponent {
     return createPortal(
       <Background show={this.state.show}>
         <Tray show={this.state.show}>
-          hi
+          Search input should be below: 
+          <SearchPage />
           {this.children}
         </Tray>
       </Background>,
