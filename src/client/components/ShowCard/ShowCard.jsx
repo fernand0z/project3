@@ -1,6 +1,6 @@
 import React from "react";
 import { createPortal } from "react-dom";
-// import tvmaze from "tvmaze-api";
+import tvmaze from "tvmaze-api";
 import styled, { keyframes } from "styled-components";
 import { slideInDown, zoomIn } from "react-animations";
 

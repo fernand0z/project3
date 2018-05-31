@@ -3,9 +3,7 @@ import "./Home.css";
 import Navbar from "../Navbar";
 import Wrapper from "../Wrapper";
 import styled from 'styled-components';
-import ShowCard from "../ShowCard/ShowCard.jsx";
-
-
+// import ShowCard from "../ShowCard/ShowCard.jsx";
 
 export default class Home extends Component {
     render() {
@@ -21,7 +19,7 @@ export default class Home extends Component {
             </form>
             </div>
             <div>
-            <ShowCard />
+            
             </div>
         </Wrapper>
         

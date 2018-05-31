@@ -33,26 +33,22 @@ const Navbar = props => (
 
 const StyledNav = styled.div`
   width: 100%;
-  background: linear-gradient(rgba(0,0,0,0.90) 5%, rgba(0,0,0,.01)); 
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   font-size: 20px;
   padding-bottom: 1%;
   padding-top: 1%;
   font-weight: bold;
   color: white;
-  
+  box-shadow: 0 6px 20px 0 rgba(200, 200, 200, 0.5);
 `;
 
 const NavLeft = styled.div`
-  color: white;
   width: 20%;
-  font-size: 34px;
+  font-size: 30px;
   text-align: left;
   float: left;
   padding: 2% 0;
   padding-left: 1%;
-  margin-top: -.5%;
-  font-family: 'Archivo';
-  letter-spacing: 1px;
 `;
 
 const NavGoogleDiv = styled.span`
@@ -66,13 +62,12 @@ const NavGoogle = styled.a`
   
   padding: 2%;
   border-radius: 5px;
-  font-size: 22px;
+  font-size: 20px;
   text-align: right;
   text-decoration: none;
   float: right;
-  color: white;
+  border: 3px solid black;
   margin-top: -1%;
-  font-weight: normal;
 `;
 
 export default Navbar;

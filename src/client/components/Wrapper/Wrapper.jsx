@@ -3,12 +3,10 @@ import "./Wrapper.css";
 import styled, { keyframes } from 'styled-components';
 
 const Wrapper = props => ( 
-<React.Fragment>
 <div className='wrapper'>
 {props.children}
+    <WrapperDiv>Here's the other wrapperdiv </WrapperDiv>
 </div>
-<WrapperDiv>Here's the other wrapperdiv </WrapperDiv>
-</React.Fragment>
 );
 
 
@@ -22,10 +20,10 @@ color: white;
 font-size: 16px;
 justify-content: space-around;
 align-content: flex-start;
+overflow: auto;
 
-
+background-repeat: repeat;
 `;
 
 export default Wrapper;
 // background-image: url("../images/static.gif");
-// background-repeat: repeat;
