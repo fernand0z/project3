@@ -3,6 +3,8 @@ import React from "react";
 import { bounce } from "react-animations";
 import styled, { keyframes } from "styled-components";
 import SearchPage from "../SearchPage";
+import '../GlobalStyles';
+import './animate.css';
 // import {Dock} from 'react-dock';
 
 const bounceAnimation = keyframes`${bounce}`;
@@ -15,7 +17,9 @@ const Navbar = props => (
         Fun TV App Name
       </NavLeft>
       <NavGoogleDiv>
+        <div className='animated bounceIn'>
         <NavGoogle href="/login/google">Sign in with Google</NavGoogle>
+        </div>
       </NavGoogleDiv>
 
       <SearchPage />
@@ -55,15 +59,15 @@ padding-right: 1%
 `;
 
 const NavGoogle = styled.a`
-  border: 1px solid black;
-  border-radius: 10px;
+  
   padding: 2%;
   border-radius: 5px;
   font-size: 20px;
   text-align: right;
   text-decoration: none;
   float: right;
-  
+  border: 3px solid black;
+  margin-top: -1%;
 `;
 
 export default Navbar;

@@ -42,6 +42,7 @@
     "devServer": "concurrently \"yarn server\" && \"yarn client\""
   },
   "dependencies": {
+    "animate.css": "^3.6.1",
     "axios": "^0.18.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",

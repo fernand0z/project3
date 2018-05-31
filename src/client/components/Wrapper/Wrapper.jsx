@@ -21,8 +21,9 @@ font-size: 16px;
 justify-content: space-around;
 align-content: flex-start;
 overflow: auto;
-background-image: url("../images/static.gif");
+
 background-repeat: repeat;
 `;
 
 export default Wrapper;
+// background-image: url("../images/static.gif");

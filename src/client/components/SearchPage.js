@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { debounce } from 'lodash';
 import { searchShows, trackNewShow } from '../actions';
 import styled, { keyframes } from 'styled-components';
+import spinnergif from './images/spinner.gif';
+
 
 class SearchPage extends React.PureComponent {
   constructor(props) {
@@ -37,7 +39,10 @@ class SearchPage extends React.PureComponent {
         <ResultsUL>
           {
             updating ?
-              <h3>PUT SPINNER HERE</h3> :
+              <React.Fragment>
+              <SpinnerImg src={spinnergif} alt='Please wait' />
+              </React.Fragment>
+              :
               searchResult.map(show =>
                 (
                   <ResultDiv>
@@ -93,7 +98,17 @@ justify-content: center;
 const ResultDiv = styled.div`
 background-color: rgba(50, 50, 50, 0.4);
 padding: 0.5%;
+float: center;
+margin-right: -2%;
 padding-bottom: 0.2%;
+`;
+
+const SpinnerImg = styled.img`
+height: 150px;
+text-align: center;
+margin: auto;
+margin-top: 2%;
+padding: 1%;;
 `;
 
 const ResultsUL = styled.ul`
@@ -105,6 +120,16 @@ const ResultA = styled.a`
 color: white !important;
 text-decoration: none;
 margin-right: 2%;
+&:hover {
+  -webkit-animation: mymove 5s infinite; 
+    animation: mymove 1s infinite;
+    @keyframes mymove {
+      50% {letter-spacing: 1px;}
+  };
+  text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+  font-size: 21px;
+  font-family: 'Libre Franklin', sans-serif;
+};
 `;
 
 const AddButton = styled.button`
@@ -113,6 +138,10 @@ background-image: linear-gradient(to bottom, #FF057C 0%, #8D0B93 30%, #321575 10
 border: 0 solid white;
 padding: 1% 2%;
 font-size: 16px;
+&:hover {
+  font-weight: bold;  
+  box-shadow: 0 4px 8px 0 rgba(50, 21, 117, 0.4), 0 6px 20px 0 rgba(50, 21, 117, 0.4);
+};
 `;
 
 const SearchInput = styled.input`
@@ -127,6 +156,7 @@ width: 100%;
 font-size: 18px;
 &::-webkit-input-placeholder {
   color: black;
+  font-family: 'Alegreya Sans';
 }
 `;
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Home.css";
 import Navbar from "../Navbar";
 import Wrapper from "../Wrapper";
+import styled from 'styled-components';
 
 export default class Home extends Component {
     render() {
