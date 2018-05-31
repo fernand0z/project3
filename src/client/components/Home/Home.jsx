@@ -3,7 +3,7 @@ import "./Home.css";
 import Navbar from "../Navbar";
 import Wrapper from "../Wrapper";
 import styled from 'styled-components';
-import ShowCard from '../ShowCard';
+import ShowCard from "../ShowCard/ShowCard.jsx";
 
 
 
