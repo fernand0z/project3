@@ -1,13 +1,7 @@
 import React from "react";
-import { createPortal } from "react-dom";
-// import tvmaze from "tvmaze-api";
+import PropTypes from "prop-types";
 import styled, { keyframes } from "styled-components";
 import { slideInDown, zoomIn } from "react-animations";
-
-tvmaze.getByQuery("girls", true, ["episodes", "cast"], function(result) {
-    console.log(result);
-    console.log(result._embedded.episodes[0]);
-});
 
 const WrapperCard = styled.div`
     background-color: #999;
@@ -50,40 +44,29 @@ const RemoveBtn = styled.div`
 `;
 
 class ShowCard extends React.Component {
-constructor() {
-    super();
-    this.state = {
-    data: null
-    };
-}
 
-componentWillMount() {
-    tvmaze.getByQuery("girls", true, [], result => {
-    this.setState({
-        data: result
-    });
-    });
+static propTypes = {
+    data: PropTypes.object.required,
+    // onRemove: PropTypes.func.required
 }
 
 render() {
-    console.log(this.state);
+    console.log(this.props.data);
     return (
     <div>
-        {this.state.data && (
         <div>
             <WrapperCard>
-            <ShowTitle>{this.state.data.name}</ShowTitle>
-            <ShowImage src={this.state.data.image.medium} alt="showImage" />
+            <ShowTitle>{this.props.data.name}</ShowTitle>
+            <ShowImage src={this.props.data.image.medium} alt="showImage" />
             <ShowInfo>
-                <p>Status: {this.state.data.status}</p>
-                <p>Network: {this.state.data.network.name}</p>
-                <p>Day: {this.state.data.schedule.days}</p>
-                <p>Time: {this.state.data.schedule.time}</p>
+                <p>Status: {this.props.data.status}</p>
+                <p>Network: {this.props.data.network.name}</p>
+                <p>Day: {this.props.data.schedule.days}</p>
+                <p>Time: {this.props.data.schedule.time}</p>
             </ShowInfo>
             </WrapperCard>
             <RemoveBtn />
         </div>
-        )}
     </div>
     );
     }
