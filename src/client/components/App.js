@@ -60,7 +60,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
+        <React.Fragment>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
@@ -69,7 +69,7 @@ class App extends React.Component {
             <Route path="/modal" component={Modal} />
             <Route component={NotFound} />
           </Switch>
-          </div>
+          </React.Fragment>
       </Router>
     );
   }
