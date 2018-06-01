@@ -1,11 +1,11 @@
 .wrapper {
-  height: 900px;
+  height: 100%;
   flex-flow: row wrap;
   text-align: center;
   padding-bottom: 50%;
   width: 100%;
   overflow: auto;
   background-image: url("../images/static.gif");
-  background-repeat: repeat;
-  
+  /* background-repeat: repeat; */
+  background-size: cover; 
 }

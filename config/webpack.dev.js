@@ -50,8 +50,9 @@ module.exports = {
       {
         test: /\.(png|jpg|gif)$/,
         use: ['file-loader']
-      }
-    ]
+      },
+    ],
+    
   },
   devServer: {
     port: 3000,

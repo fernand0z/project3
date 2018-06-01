@@ -14,7 +14,7 @@ const Navbar = props => (
   <React.Fragment>
     <StyledNav>    
       <NavLeft>
-        Fun TV App Name
+        Binge Buddy
       </NavLeft>
       <NavGoogleDiv>
         <div className='animated bounceIn'>

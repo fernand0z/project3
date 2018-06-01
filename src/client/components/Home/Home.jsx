@@ -4,7 +4,7 @@ import Navbar from '../Navbar';
 import Wrapper from '../Wrapper';
 import styled from 'styled-components';
 import ShowCard from '../ShowCard';
-
+import MenuBar from '../MenuBar';
 
 
 export default class Home extends Component {
@@ -13,8 +13,6 @@ export default class Home extends Component {
         <React.Fragment>
         <Wrapper>
             <Navbar />
-
-            {/* JUST FOR TESTING */}
             
             <div>
             <form className='bounceInRight' action='/modal'>
@@ -23,7 +21,7 @@ export default class Home extends Component {
             </div>
         
         </Wrapper>
-        
+        <MenuBar />
         </React.Fragment>
     );
     }

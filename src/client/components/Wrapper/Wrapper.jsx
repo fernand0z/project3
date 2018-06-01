@@ -5,6 +5,7 @@ import styled, { keyframes } from 'styled-components';
 const Wrapper = props => ( 
 <React.Fragment>
 <div className='wrapper'>
+
 {props.children}
 </div>
 <WrapperDiv>Here's the other wrapperdiv </WrapperDiv>
@@ -17,7 +18,8 @@ const WrapperDiv = styled.div`
 height: 100%;
 display: flex;
 padding-bottom: 0%;
-padding-top: 5%;
+padding-top: 0%;
+margin-bottom: -3%;
 color: white;
 font-size: 16px;
 justify-content: space-around;
