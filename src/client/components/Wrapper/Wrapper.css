@@ -5,7 +5,9 @@
   padding-bottom: 50%;
   width: 100%;
   overflow: auto;
-  background-image: url("../images/static.gif");
+  
   /* background-repeat: repeat; */
   background-size: cover; 
 }
+
+background-image: url("../images/static.gif");

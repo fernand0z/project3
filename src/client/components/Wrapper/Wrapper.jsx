@@ -5,7 +5,7 @@ import styled, { keyframes } from 'styled-components';
 const Wrapper = props => ( 
 <React.Fragment>
 <div className='wrapper'>
-
+<video autoplay loop id='video-background' muted plays-inline><source src='../images/background.mov' type='video/mp4' /></video>
 {props.children}
 </div>
 <WrapperDiv>Here's the other wrapperdiv </WrapperDiv>
