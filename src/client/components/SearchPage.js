@@ -4,7 +4,7 @@ import { debounce } from 'lodash';
 import { searchShows, trackNewShow } from '../actions';
 import styled, { keyframes } from 'styled-components';
 import spinnergif from './images/spinner.gif';
-
+import ShowCard from './ShowCard';
 
 class SearchPage extends React.PureComponent {
   constructor(props) {
@@ -45,8 +45,8 @@ class SearchPage extends React.PureComponent {
               :
               searchResult.map(show =>
                 (
-                  <ResultDiv>
-                  <p key={ show.id }>
+                  <ResultDiv  key={ show.id }>
+                  <p>
                     <ResultA href={ show.url } target="_blank">{ show.name }</ResultA>
                     <AddButton
                       onClick={() => this.addShow(show)}>
@@ -59,11 +59,13 @@ class SearchPage extends React.PureComponent {
           }
         </ResultsUL>
 
-        {trackedShows.map(show => {
-          // const show = kv[1];
-          return <p key={show.id}>{show.name} has {Object.keys(show.episodes).length} episodes</p>
-        })}
       </SearchSpan>
+
+
+      {trackedShows.map(show => {
+        // const show = kv[1];
+        return <ShowCard key={show.id} show={show} />
+      })}
       </React.Fragment>
       
     )
