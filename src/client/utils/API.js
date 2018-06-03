@@ -36,12 +36,19 @@ export default class API {
     return axios.delete(`/api/user/show/${id}`);
   }
 
+  static markEpisode({ showId, episodeId, seen }) {
+     return axios.patch(
+      `/api/user/show/${showId}/episode/${episodeId}`,
+      { seen }
+    );
+  }
+
   static markEpisodeSeen({ showId, episodeId }) {
-    return axios.patch('/api/user/show')
+    return markEpisode({ showId, episodeId, seen: true });
   }
 
   static markEpisodeUnseen({ showId, episodeId }) {
-
+    return markEpisode({ showId, episodeId, seen: false });
   }
 }
 

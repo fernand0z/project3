@@ -12,7 +12,7 @@ const stateShape = {
       name: 'game of thrones',
       image: {},
       updating: false,
-      episodes: {'[id]': {}},
+      episodes: { '[id]': {} },
       watchedEpisodes: ['list of episode ids']
     }
   },

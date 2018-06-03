@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const showSchema = new mongoose.Schema({
-    id: Number,
+    _id: Number,
     watchedEpisodes:[Number]
 });
 
@@ -31,20 +31,30 @@ userSchema.statics.findOrCreate = function({ id, displayName, emails }) {
 }
 
 userSchema.methods.showTracked = function(id) {
-  return this.trackedShows.filter(show => show.id === id).length !== 0;
+  return !!this.trackedShows.id(id);
 }
 
 userSchema.methods.addShow = function(id) {
   if(this.showTracked(id)) return;
-  this.trackedShows.push({id, episodes: []});
+  this.trackedShows.push({ _id: id, episodes: [] });
+  this.save();
   return this;
 }
 
 userSchema.methods.removeShow = function(id) {
-  if(!this.showTracked(id)) return;
-  this.trackedShows = this.trackedShows.filter(show => show.id !== id);
+  this.trackedShows.id(id).remove();
   this.save();
   return this;
+}
+
+userSchema.methods.patchEpisode = function(id, episode, seen) {
+  const show = this.trackedShows.id(id);
+  show.watchedEpisodes = show.watchedEpisodes.filter(n => n !== episode);
+  if(seen) {
+    show.watchedEpisodes.push(episode);
+  }
+
+  show.save();
 }
 
 module.exports = mongoose.model('User', userSchema);
