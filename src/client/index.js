@@ -6,11 +6,17 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';
+import { persistState, getInitialState } from './utils/stateLocalStorage.js';
+import backendSync from './middleware/backendSync';
 
 const store = createStore(
   reducers,
-  composeWithDevTools(applyMiddleware(thunk))
+  getInitialState(),
+  composeWithDevTools(applyMiddleware(thunk, backendSync))
 );
+
+persistState(store);
+
 
 render(
   <Provider store={store}>

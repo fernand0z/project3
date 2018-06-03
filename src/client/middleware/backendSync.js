@@ -1,18 +1,20 @@
-import ActionTypes from '../actions';
+import * as ActionTypes from '../actions';
 import API from '../utils/API';
 
 const backendSync = store => next => action => {
+  next(action);
+
   switch(action.type) {
     case ActionTypes.TRACK_SHOW: {
-      API.trackShow();
+      API.trackShow({ id: action.id });
     }
 
     case ActionTypes.UNTRACK_SHOW: {
-      API
+      API.untrackShow({ id: action.id });
     }
 
     case ActionTypes.MARK_EPISODE_SEEN: {
-
+      API.
     }
 
     case ActionTypes.MARK_EPISODE_UNSEEN: {
@@ -24,7 +26,6 @@ const backendSync = store => next => action => {
     }
   }
 
-  next(action);
 }
 
 export default backendSync;

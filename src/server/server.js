@@ -23,12 +23,17 @@ if(process.env.NODE_ENV !== 'production') {
 
   app.use(require('webpack-hot-middleware')(compiler));
 }
+// parse json
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 // serve static files
 app.use(express.static(path.join(__dirname, '../../dist')));
 
 // authentication routes
 app.use(require('./auth/authRoutes'));
+
+app.use(require('./auth/userRoutes'));
 
 // all other routes is the react app
 app.get('/*', (req, res) => {
