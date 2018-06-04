@@ -5,6 +5,7 @@ import styled, { keyframes } from "styled-components";
 import SearchPage from "../SearchPage";
 import '../GlobalStyles';
 import './animate.css';
+
 // import {Dock} from 'react-dock';
 
 const bounceAnimation = keyframes`${bounce}`;
@@ -25,7 +26,7 @@ const Navbar = props => (
       <SearchPage />
       
       </StyledNav>
-  
+        
   </React.Fragment>
 );
 
@@ -33,6 +34,7 @@ const Navbar = props => (
 
 const StyledNav = styled.div`
   width: 100%;
+  position: fixed;
   background: linear-gradient(rgba(0,0,0,0.90) 5%, rgba(0,0,0,.01)); 
   font-size: 20px;
   padding-bottom: 1%;
@@ -51,7 +53,7 @@ const NavLeft = styled.div`
   padding: 2% 0;
   padding-left: 1%;
   margin-top: -.5%;
-  font-family: 'Archivo';
+  font-family: 'Raleway';
   letter-spacing: 1px;
 `;
 

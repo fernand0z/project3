@@ -4,24 +4,20 @@ import { debounce } from 'lodash';
 import { searchShows, trackNewShow } from '../actions';
 import styled, { keyframes } from 'styled-components';
 import spinnergif from './images/spinner.gif';
-
-
+import ShowCard from './ShowCard';
 class SearchPage extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = { query: '' }
     this.searchShows = debounce(props.searchShows, 500);
   }
-
   handleChange = (e) => {
     this.setState({ query: e.target.value });
     this.searchShows(e.target.value);
   }
-
   addShow(show) {
     this.props.trackNewShow(show);
   }
-
   render() {
     const { query } = this.state;
     let { searchResult, updating, trackedShows } = this.props;
@@ -45,8 +41,8 @@ class SearchPage extends React.PureComponent {
               :
               searchResult.map(show =>
                 (
-                  <ResultDiv>
-                  <p key={ show.id }>
+                  <ResultDiv  key={ show.id }>
+                  <p>
                     <ResultA href={ show.url } target="_blank">{ show.name }</ResultA>
                     <AddButton
                       onClick={() => this.addShow(show)}>
@@ -58,12 +54,11 @@ class SearchPage extends React.PureComponent {
               )
           }
         </ResultsUL>
-
-        {trackedShows.map(show => {
-          // const show = kv[1];
-          return <p key={show.id}>{show.name} has {Object.keys(show.episodes).length} episodes</p>
-        })}
       </SearchSpan>
+      {trackedShows.map(show => {
+        // const show = kv[1];
+        return <ShowCard key={show.id} show={show} />
+      })}
       </React.Fragment>
       
     )
@@ -76,15 +71,12 @@ const mapStateToProps = (state, ownProps) => {
     trackedShows: state.trackedShows
   }
 }
-
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     searchShows: (query) => dispatch(searchShows(query)),
     trackNewShow: (show) => dispatch(trackNewShow(show))
   }
 }
-
-
 // =====================================STYLED-COMPONENTS CSS=======================================
 const SearchSpan= styled.div`
 width: 30%;
@@ -94,7 +86,6 @@ text-align: center;
 align-items: center;
 justify-content: center;
 `;
-
 const ResultDiv = styled.div`
 background-color: rgba(50, 50, 50, 0.4);
 padding: 0.5%;
@@ -102,7 +93,6 @@ float: center;
 margin-right: -2%;
 padding-bottom: 0.2%;
 `;
-
 const SpinnerImg = styled.img`
 height: 150px;
 text-align: center;
@@ -110,12 +100,10 @@ margin: auto;
 margin-top: 2%;
 padding: 1%;;
 `;
-
 const ResultsUL = styled.ul`
 color: white;
 padding: 0% 1%;
 `;
-
 const ResultA = styled.a`
 color: white !important;
 text-decoration: none;
@@ -131,7 +119,6 @@ margin-right: 2%;
   font-family: 'Libre Franklin', sans-serif;
 };
 `;
-
 const AddButton = styled.button`
 color: white;
 background-image: linear-gradient(to bottom, #FF057C 0%, #8D0B93 30%, #321575 100%);
@@ -144,7 +131,6 @@ margin-left: 1%;
   box-shadow: 2px 4px 8px 0 rgba(150, 150, 150, 0.4), 2px 4px 20px 0 rgba(70, 41, 137, 0.4);
 };
 `;
-
 const SearchInput = styled.input`
 padding: 2%;
 color: white; 
@@ -161,7 +147,6 @@ margin-left: -2%;
   font-family: 'Alegreya Sans';
 }
 `;
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps

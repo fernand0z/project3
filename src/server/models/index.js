@@ -8,5 +8,7 @@ mongoose.connection.on('error', (err) => {
 });
 
 module.exports = {
-  User: require('./user')
-}
+  User: require("./user"),
+  ShowCard: require("./show"),
+  EpisodeCard: require("./episode")
+};

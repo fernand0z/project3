@@ -8,7 +8,7 @@ render() {
     return (
       <MenuWrapper>
         <MenuTitle1>Summary</MenuTitle1>
-        <MenuTitle2>Calendar</MenuTitle2>
+        <MenuTitle2>Upcoming</MenuTitle2>
         <MenuTitle3>Settings</MenuTitle3>
       </MenuWrapper>
     );
@@ -22,6 +22,7 @@ const MenuWrapper = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(100px, auto);
     margin-top: -1%;
+    align-items: center;
     padding-top: 0%;
     
 `;
@@ -30,7 +31,7 @@ const MenuTitle1 = styled.div`
     grid-column: 1; 
     grid-row: 1;
     text-align: center;
-    padding-top: 12%;
+    padding: 8%;
     font-size: 28px;
     color: white;
     font-weight: bold;
@@ -41,7 +42,8 @@ const MenuTitle2 = styled.div`
     grid-column: 2; 
     grid-row: 1;
     text-align: center;
-    padding-top: 12%;
+    
+    padding: 8%;
     font-size: 28px;
     color: white;
     font-weight: bold;
@@ -52,7 +54,7 @@ const MenuTitle3 = styled.div`
     grid-column: 3; 
     grid-row: 1;
     text-align: center;
-    padding-top: 12%;
+    padding: 8%;
     font-size: 28px;
     color: white;
     font-weight: bold;

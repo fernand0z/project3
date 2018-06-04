@@ -50,6 +50,7 @@
     "mongoose": "^5.1.2",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+    "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-animations": "^1.0.0",
     "react-dock": "^0.2.4",

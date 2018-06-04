@@ -38,12 +38,10 @@ const modalRoot = document.getElementById('modal-root');
 class Modal extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = { show: false }
+    this.state = { show: true }
     this.el = document.createElement('div');
 
-    setInterval(() => this.setState(prevState => {
-      return { show: !prevState.show };
-    }), 3000);
+ ;
   }
 
   componentDidMount() {

@@ -19,9 +19,9 @@ export default class Home extends Component {
                 <input type='submit' value='Gets modal, needs styling' />
             </form>
             </div>
-        
+            
         </Wrapper>
-        <MenuBar />
+
         </React.Fragment>
     );
     }
