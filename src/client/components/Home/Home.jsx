@@ -21,7 +21,7 @@ export default class Home extends Component {
             </div>
             
         </Wrapper>
-
+        <MenuBar />
         </React.Fragment>
     );
     }

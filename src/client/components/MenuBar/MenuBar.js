@@ -1,16 +1,39 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from "styled-components";
+import Summary from '../Summary';
+import Upcoming from '../Upcoming';
+import Settings from '../Setting';
 // import { slideInDown, zoomIn } from "react-animations";
 
 class MenuBar extends React.Component {
 
 render() {
     return (
-      <MenuWrapper>
-        <MenuTitle1>Summary</MenuTitle1>
-        <MenuTitle2>Upcoming</MenuTitle2>
-        <MenuTitle3>Settings</MenuTitle3>
-      </MenuWrapper>
+        
+    <Router>
+<React.Fragment>
+<MenuWrapper>
+
+    <MenuTitle1>
+        <Link to="/summary">Summary</Link>
+    </MenuTitle1>
+    <MenuTitle2>
+        <Link to="/upcoming">Upcoming</Link>
+    </MenuTitle2>
+    <MenuTitle3>
+        <Link to="/settings">Settings</Link>
+    </MenuTitle3>        
+
+</MenuWrapper>
+<div>
+    <Route path="/summary" component={Summary} />
+    <Route path="/upcoming" component={Upcoming} />
+    <Route path="/settings" component={Setting} />
+</div>
+</React.Fragment>
+</Router>
+
     );
     }
 }
@@ -90,3 +113,35 @@ const RemoveBtn = styled.div`
 `;
 
 export default MenuBar;
+
+// <Router>
+// <React.Fragment>
+// <MenuWrapper>
+
+//     <MenuTitle1><Link to="/summary">Summary</Link></MenuTitle1>
+//     <MenuTitle2><Link to="/upcoming">Upcoming</Link></MenuTitle2>
+//     <MenuTitle3><Link to="/settings">Settings</Link></MenuTitle3>        
+
+// </MenuWrapper>
+// <div>
+//     <Route path="/summary" component={Summary} />
+//     <Route path="/upcoming" component={Upcoming} />
+//     <Route path="/settings" component={Setting} />
+// </div>
+// </React.Fragment>
+// </Router>
+
+
+
+
+
+
+// <React.Fragment>
+// <MenuWrapper>
+
+//     <MenuTitle1>Summary</MenuTitle1>
+//     <MenuTitle2>Upcoming</MenuTitle2>
+//     <MenuTitle3>Settings</MenuTitle3>          
+// </MenuWrapper>
+
+// </React.Fragment>
