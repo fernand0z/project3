@@ -4,7 +4,7 @@ import { debounce } from 'lodash';
 import { searchShows, trackNewShow } from '../actions';
 import styled, { keyframes } from 'styled-components';
 import spinnergif from './images/spinner.gif';
-import ShowCard from './ShowCard';
+import ShowCard from './ShowCard/Showcard.jsx';
 class SearchPage extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -125,7 +125,7 @@ margin-right: 2%;
 const AddButton = styled.button`
 color: white;
 background-image: linear-gradient(to bottom, #FF057C 0%, #8D0B93 30%, #321575 100%);
-border: 0 solid white;
+border: none;
 padding: 1% 2%;
 font-size: 16px;
 margin-left: 1%;

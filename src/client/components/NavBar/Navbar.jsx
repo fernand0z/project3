@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 // import "./navbar.css";
 import { bounce } from "react-animations";
 import styled, { keyframes } from "styled-components";
@@ -19,7 +20,11 @@ const Navbar = props => (
       </NavLeft>
       <NavGoogleDiv>
         <div className='animated bounceIn'>
-        <NavGoogle href="/login/google">Sign in with Google</NavGoogle>
+        {props.user.exists ? 
+          <span>Logged in</span> :
+          <NavGoogle href="/login/google">Sign in with Google</NavGoogle>
+        }
+        
         </div>
       </NavGoogleDiv>
 
@@ -45,9 +50,9 @@ const StyledNav = styled.div`
 `;
 
 const Logo = styled.img`
-  height: 100px;
+  width: 25%;
   position: fixed;
-  margin-top: -2%;
+  margin-top: -3%;
   
   
 `;
@@ -70,6 +75,7 @@ width: 20%;
 float: right;
 padding: 2.5% 0;
 padding-right: 1%
+fontFamily: 'Raleway';
 `;
 
 const NavGoogle = styled.a`
@@ -85,4 +91,20 @@ const NavGoogle = styled.a`
   font-weight: normal;
 `;
 
-export default Navbar;
+
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Navbar);
