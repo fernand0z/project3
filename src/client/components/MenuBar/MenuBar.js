@@ -10,29 +10,15 @@ class MenuBar extends React.Component {
 
 render() {
     return (
-        
-    <Router>
-<React.Fragment>
+        <React.Fragment>
 <MenuWrapper>
 
-    <MenuTitle1>
-        <Link to="/summary">Summary</Link>
-    </MenuTitle1>
-    <MenuTitle2>
-        <Link to="/upcoming">Upcoming</Link>
-    </MenuTitle2>
-    <MenuTitle3>
-        <Link to="/settings">Settings</Link>
-    </MenuTitle3>        
-
+    <MenuTitle1>Summary</MenuTitle1>
+    <MenuTitle2>Upcoming</MenuTitle2>
+    <MenuTitle3>Settings</MenuTitle3>          
 </MenuWrapper>
-<div>
-    <Route path="/summary" component={Summary} />
-    <Route path="/upcoming" component={Upcoming} />
-    <Route path="/settings" component={Setting} />
-</div>
+
 </React.Fragment>
-</Router>
 
     );
     }

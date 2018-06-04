@@ -5,8 +5,8 @@ import styled, { keyframes } from "styled-components";
 import SearchPage from "../SearchPage";
 import '../GlobalStyles';
 import './animate.css';
+import logoimg from '../images/Picture1.png';
 
-// import {Dock} from 'react-dock';
 
 const bounceAnimation = keyframes`${bounce}`;
 
@@ -15,7 +15,7 @@ const Navbar = props => (
   <React.Fragment>
     <StyledNav>    
       <NavLeft>
-        Binge Buddy
+        <Logo src={logoimg} alt='logo' />
       </NavLeft>
       <NavGoogleDiv>
         <div className='animated bounceIn'>
@@ -41,6 +41,14 @@ const StyledNav = styled.div`
   padding-top: 1%;
   font-weight: bold;
   color: white;
+  
+`;
+
+const Logo = styled.img`
+  height: 100px;
+  position: fixed;
+  margin-top: -2%;
+  
   
 `;
 
