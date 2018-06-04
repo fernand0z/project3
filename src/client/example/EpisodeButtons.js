@@ -5,8 +5,9 @@ import styled from 'styled-components';
 import { toggleEpisode } from '../actions';
 
 const Button = styled.button`
-  background-color: ${props => props.seen ? 'blue' : 'white'};
-  color: ${props => props.seen ? 'white' : 'black'};
+  background-color: ${props => props.seen ? 'pink' : 'purple'};
+  color: ${props => props.seen ? 'white' : 'gray'};
+  border-radius: 6px;
 `
 
 const EpisodeButtons = (props) => {
@@ -34,8 +35,9 @@ const EpisodeButtons = (props) => {
       <div key={index}>
         {season.map(episode => {
           const {id, season, number, name} = episode;
-
+      
           return (
+          
             <Button
               key={id}
               seen={watchedEpisodes.includes(id)}
@@ -43,6 +45,7 @@ const EpisodeButtons = (props) => {
 
               S{season}E{number}
             </Button>
+
           )
         })}
         <button onClick={() => markSeason(index)}>All</button>
