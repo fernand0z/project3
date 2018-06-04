@@ -26,7 +26,7 @@ class SearchPage extends React.PureComponent {
     return (
       <React.Fragment>
         <SearchSpan>
-
+          
         <SearchInput type="text"
           value={ query }
           placeholder='Search for Shows'
@@ -63,7 +63,7 @@ class SearchPage extends React.PureComponent {
         return <ShowCard key={show.id} show={show} />
       })}
       </React.Fragment>
-
+      
     )
   }
 }
@@ -112,7 +112,7 @@ color: white !important;
 text-decoration: none;
 margin-right: 2%;
 &:hover {
-  -webkit-animation: mymove 5s infinite;
+  -webkit-animation: mymove 5s infinite; 
     animation: mymove 1s infinite;
     @keyframes mymove {
       50% {letter-spacing: 1px;}
@@ -130,13 +130,13 @@ padding: 1% 2%;
 font-size: 16px;
 margin-left: 1%;
 &:hover {
-  font-weight: bold;
+  font-weight: bold;  
   box-shadow: 2px 4px 8px 0 rgba(150, 150, 150, 0.4), 2px 4px 20px 0 rgba(70, 41, 137, 0.4);
 };
 `;
 const SearchInput = styled.input`
 padding: 2%;
-color: white;
+color: white; 
 margin: auto;
 background-color: transparent;
 border: 2px solid rgba(50, 50, 50, 0.4);
