@@ -2,7 +2,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import styled, { keyframes, css } from 'styled-components';
 import { fadeIn, fadeOut, slideInRight, slideOutRight } from 'react-animations';
-import SearchPage from './SearchPage';
+import PropTypes from 'prop-types';
 
   // display: ${ props => props.display ? 'block' : 'none' };
 const Background = styled.div`
@@ -21,6 +21,7 @@ const Background = styled.div`
 
   // visibility: ${ props => props.show ? 'visible' : 'hidden' };
 const Tray = styled.div`
+  padding: 20px;
   z-index: 2;
   position: fixed;
   right: 0;
@@ -34,13 +35,16 @@ const Tray = styled.div`
 
 
 const modalRoot = document.getElementById('modal-root');
+
 class Modal extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = { show: true }
     this.el = document.createElement('div');
+  }
 
- ;
+  static propTypes = {
+    show: PropTypes.bool.isRequired,
+    close: PropTypes.func.isRequired
   }
 
   componentDidMount() {
@@ -51,13 +55,18 @@ class Modal extends React.PureComponent {
     modalRoot.removeChild(this.el);
   }
 
+  handleClick = (e) => {
+    if(e.target === e.currentTarget) this.props.close();
+  }
+
   render() {
     return createPortal(
-      <Background show={this.state.show}>
-        <Tray show={this.state.show}>
-          Search input should be below: 
-          <SearchPage />
-          {this.children}
+      <Background
+        show={this.props.show}
+        onClick={this.handleClick}>
+
+        <Tray show={this.props.show}>
+          {this.props.children}
         </Tray>
       </Background>,
       this.el

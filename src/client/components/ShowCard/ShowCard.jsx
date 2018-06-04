@@ -53,9 +53,12 @@ margin-left: 1%;
 };
 `;
 
-
 const RemoveBtn = styled.button`
-  float: right;
+    border: 1px solid #333;
+    float: right;
+    background-color: green;
+    width: 20%;
+    height: 10%;
 `;
 
 class ShowCard extends React.Component {
@@ -63,23 +66,10 @@ class ShowCard extends React.Component {
   //     show: PropTypes.object.required
   // }
 
-  
-
-  render() {
-    const { show } = this.props;
-    const episodes = Object.values(show.episodes);
-    const seasons = [];
-    episodes.forEach(episode => {
-        const seasonNumber = episode.season;
-        if(!seasons[seasonNumber]) {
-            seasons[seasonNumber] = [];
-        }
-        seasons[seasonNumber].push(episode);
-    });
-    console.log('seasons:');
-    console.log(seasons);
-
-    console.log(show);
+static propTypes = {
+    data: PropTypes.object.isRequired,
+    // onRemove: PropTypes.func.isRequired
+}
 
     return (
       <div>
@@ -93,11 +83,8 @@ class ShowCard extends React.Component {
               <p>Day: {show.schedule.days}</p>
               <p>Time: {show.schedule.time}</p>
             </ShowInfo>
-            {seasons.map((season,index) => {
-              return <AddButton key={season[0].id}> Season {index}</AddButton>;
-            })}
-          </WrapperCard>
-          <RemoveBtn>Remove</RemoveBtn>
+            <RemoveBtn>Remove</RemoveBtn>
+            </WrapperCard>
         </div>
       </div>
     );

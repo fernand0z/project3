@@ -12,7 +12,7 @@ const stateShape = {
       name: 'game of thrones',
       image: {},
       updating: false,
-      episodes: {'[id]': {}},
+      episodes: { '[id]': {} },
       watchedEpisodes: ['list of episode ids']
     }
   },
@@ -46,13 +46,18 @@ function searchResult(state = { updating: false, data: [] }, action) {
 
 function trackedShows(state = {}, action) {
   switch(action.type) {
+    case ActionTypes.GET_USER_FAILURE: {
+      return {};
+    }
+
     case ActionTypes.TRACK_SHOW: {
       const newShow = {
         ...action.show,
         updating: false,
-        episodes: {},
         watchedEpisodes: []
       }
+
+      delete newShow._embedded;
 
       return {
         ...state,
@@ -98,6 +103,69 @@ function trackedShows(state = {}, action) {
       return {
         ...state,
         [action.id]: updatedShow
+      }
+    }
+
+    case ActionTypes.MARK_EPISODE_SEEN: {
+      const show = state[action.showId];
+      const newWatched = new Set(show.watchedEpisodes);
+      newWatched.add(action.episodeId);
+
+      const updatedShow = {
+        ...show,
+        watchedEpisodes: [...newWatched]
+      }
+
+      return {
+        ...state,
+        [action.showId]: updatedShow
+      }
+    }
+
+    case ActionTypes.MARK_EPISODE_UNSEEN: {
+      const show = state[action.showId];
+      const newWatched = new Set(show.watchedEpisodes);
+      newWatched.delete(action.episodeId);
+
+      const updatedShow = {
+        ...show,
+        watchedEpisodes: [...newWatched]
+      }
+
+      return {
+        ...state,
+        [action.showId]: updatedShow
+      }
+    }
+
+    case ActionTypes.TOGGLE_EPISODE: {
+      const show = state[action.showId];
+      const newWatched = new Set(show.watchedEpisodes);
+      if(!newWatched.delete(action.episodeId)) {
+        newWatched.add(action.episodeId);
+      }
+
+      const updatedShow = {
+        ...show,
+        watchedEpisodes: [...newWatched]
+      }
+
+      return {
+        ...state,
+        [action.showId]: updatedShow
+      }
+    }
+
+    case ActionTypes.BULK_SET_EPISODES_SEEN: {
+      const show = state[action.showId];
+      const updatedShow = {
+        ...show,
+        watchedEpisodes: action.data
+      }
+
+      return {
+        ...state,
+        [action.showId]: updatedShow
       }
     }
 
