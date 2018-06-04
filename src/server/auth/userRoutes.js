@@ -12,30 +12,28 @@ function requireAuth(req, res, next) {
 router.use('/api', requireAuth);
 
 router.get('/api/user', (req, res) => {
-  res.json(req.user);
+  const { trackedShows, ...rest } = req.user.toJSON();
+  res.json(rest);
 });
 
-router.get('/api/user/show', (req, res) => {
+router.get('/api/user/shows', (req, res) => {
   res.json(req.user.trackedShows);
 });
 
-router.post('/api/user/show/:id', (req, res) => {
+router.post('/api/user/shows/:id', (req, res) => {
   req.user.addShow(req.params.id);
   res.end();
 });
 
-router.delete('/api/user/show/:id', (req, res) => {
+router.delete('/api/user/shows/:id', (req, res) => {
   req.user.removeShow(req.params.id);
   res.end();
 });
 
-router.get('/api/user/show/:id', (req, res) => {
-
-});
-
-router.patch('/api/user/show/:showid/episode/:episodeid', (req, res) => {
+router.patch('/api/user/shows/:showid/episode/:episodeid', (req, res) => {
   const { seen } = req.body;
   const { showid, episodeid } = req.params;
+  console.log('patching episode', showid, episodeid, seen);
   req.user.patchEpisode(showid, episodeid, seen);
   res.end();
 });

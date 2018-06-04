@@ -20,7 +20,7 @@ const backendSync = store => next => action => {
     case ActionTypes.TOGGLE_EPISODE: {
       const state = store.getState();
       const { showId, episodeId } = action;
-      const watchedEpisodes = state.trackedShows[showId];
+      const { watchedEpisodes } = state.trackedShows[showId];
       const seen = watchedEpisodes.includes(episodeId);
       API.markEpisode({ showId, episodeId, seen });
       break;

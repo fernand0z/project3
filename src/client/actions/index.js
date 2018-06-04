@@ -17,6 +17,7 @@ export const UPDATE_EPISODES_FAILURE = 'UPDATE_EPISODES_FAILURE';
 export const MARK_EPISODE_SEEN = 'MARK_EPISODE_SEEN';
 export const MARK_EPISODE_UNSEEN = 'MARK_EPISODE_UNSEEN';
 export const TOGGLE_EPISODE = 'TOGGLE_EPISODE';
+export const BULK_SET_EPISODES_SEEN = 'BULK_SET_EPISODES_SEEN';
 
 export function getUserRequest() {
   return {
@@ -82,7 +83,7 @@ function retryRateLimiting(retryDispatch, failureDispatch) {
 export function searchShows(query) {
   return (dispatch) => {
     dispatch(searchShowRequest());
-    API.searchShows(query)
+    return API.searchShows(query)
       .then(shows => dispatch(searchShowSuccess(shows)))
       .catch(err => dispatch(searchShowFailure(err)));
   }
@@ -126,27 +127,10 @@ export function updateEpisodesFailure({ id, error }) {
   }
 }
 
-// TRACK_SHOW then UPDATE_EPISODES for that show
-// show is the json from tvmaze
-export function trackNewShow(show) {
+export function trackNewShow({ id }) {
   return (dispatch, getState) => {
-    const { trackedShows } = getState();
-
-    dispatch(trackShow(show));
-    dispatch(updateEpisodesRequest(show));
-    API.getEpisodes(show)
-      .then(episodes => dispatch(updateEpisodesSuccess(
-        {
-          id: show.id,
-          episodes
-        }
-      )))
-      .catch(err => dispatch(updateEpisodesFailure(
-        {
-          id: show.id,
-          err
-        }
-      )));
+    return API.getShow({ id })
+      .then(show => dispatch(trackShow(show)));
   }
 }
 
@@ -171,5 +155,40 @@ export function toggleEpisode({ showId, episodeId }) {
     type: TOGGLE_EPISODE,
     showId,
     episodeId
+  }
+}
+
+export function bulkSetEpisodesSeen({ showId, data }) {
+  return {
+    type: BULK_SET_EPISODES_SEEN,
+    showId,
+    data
+  }
+}
+
+export function syncAccount() {
+  return async (dispatch, getState) => {
+    const trackedShows = await API.getUserShows();
+    const showIds = new Set();
+    trackedShows.forEach(show => showIds.add(show._id));
+
+    // untrack all shows not tracked on account
+    Object.keys(getState().trackedShows).forEach(id => {
+      id = parseInt(id);
+      if(!showIds.has(id)) dispatch(untrackShow({ id }));
+    });
+
+    // update all tracked shows
+    const promises = [...showIds].map(id =>
+      dispatch(trackNewShow({ id })));
+    await Promise.all(promises);
+
+    // add watched episodes for each show
+    trackedShows.forEach(show => {
+      dispatch(bulkSetEpisodesSeen({
+        showId: show._id,
+        data: show.watchedEpisodes
+      }));
+    });
   }
 }

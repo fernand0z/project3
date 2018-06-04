@@ -23,6 +23,7 @@ import styled from 'styled-components';
 import SearchPage from '../components/SearchPage';
 import ProfilePage from '../components/ProfilePage';
 import Modal from '../components/Modal.js';
+import AccountPage from './testground/AccountPage.js';
 
 
 // const Home = () => (
@@ -67,9 +68,10 @@ class App extends React.Component {
             <Route path="/profile" component={ProfilePage} />
             <Route path="/search" component={SearchPage} />
             <Route path="/modal" component={Modal} />
+            <Route path="/account" component={AccountPage} />
             <Route component={NotFound} />
           </Switch>
-          </React.Fragment>
+        </React.Fragment>
       </Router>
     );
   }

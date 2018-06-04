@@ -49,12 +49,15 @@ userSchema.methods.removeShow = function(id) {
 
 userSchema.methods.patchEpisode = function(id, episode, seen) {
   const show = this.trackedShows.id(id);
-  show.watchedEpisodes = show.watchedEpisodes.filter(n => n !== episode);
+  if(!show) return;
+
+  show.watchedEpisodes =
+    show.watchedEpisodes.filter(n => n !== parseInt(episode));
   if(seen) {
     show.watchedEpisodes.push(episode);
   }
 
-  show.save();
+  this.save();
 }
 
 module.exports = mongoose.model('User', userSchema);

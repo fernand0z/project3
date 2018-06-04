@@ -46,13 +46,18 @@ function searchResult(state = { updating: false, data: [] }, action) {
 
 function trackedShows(state = {}, action) {
   switch(action.type) {
+    case ActionTypes.GET_USER_FAILURE: {
+      return {};
+    }
+
     case ActionTypes.TRACK_SHOW: {
       const newShow = {
         ...action.show,
         updating: false,
-        episodes: {},
         watchedEpisodes: []
       }
+
+      delete newShow._embedded;
 
       return {
         ...state,
@@ -143,6 +148,19 @@ function trackedShows(state = {}, action) {
       const updatedShow = {
         ...show,
         watchedEpisodes: [...newWatched]
+      }
+
+      return {
+        ...state,
+        [action.showId]: updatedShow
+      }
+    }
+
+    case ActionTypes.BULK_SET_EPISODES_SEEN: {
+      const show = state[action.showId];
+      const updatedShow = {
+        ...show,
+        watchedEpisodes: action.data
       }
 
       return {

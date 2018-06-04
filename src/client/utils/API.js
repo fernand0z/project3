@@ -13,13 +13,28 @@ axios.interceptors.response.use(undefined, err => {
 
 export default class API {
   static getUser() {
-    return axios.get('api/user');
+    return axios.get('/api/user');
+  }
+
+  static getUserShows() {
+    return axios.get('/api/user/shows')
+      .then(res => res.data);
   }
 
   static searchShows(query) {
     return axios.get(`http://api.tvmaze.com/search/shows?q=${query}`)
       .then(res => res.data)
       .then(data => data.map(entry => entry.show));
+  }
+
+  static getShow({ id }) {
+    return axios.get(`http://api.tvmaze.com/shows/${id}?embed=episodes`)
+      .then(res => res.data)
+      .then(show => {
+        show.episodes = mapToIds(show._embedded.episodes);
+        delete show._embedded;
+        return show;
+      });
   }
 
   static getEpisodes({ id }) {
@@ -29,16 +44,16 @@ export default class API {
   }
 
   static trackShow({ id }) {
-    return axios.post(`/api/user/show/${id}`);
+    return axios.post(`/api/user/shows/${id}`);
   }
 
   static untrackShow({ id }) {
-    return axios.delete(`/api/user/show/${id}`);
+    return axios.delete(`/api/user/shows/${id}`);
   }
 
   static markEpisode({ showId, episodeId, seen }) {
      return axios.patch(
-      `/api/user/show/${showId}/episode/${episodeId}`,
+      `/api/user/shows/${showId}/episode/${episodeId}`,
       { seen }
     );
   }
