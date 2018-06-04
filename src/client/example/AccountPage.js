@@ -1,11 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import ShowDisplay from './ShowDisplay.js';
-import { toggleEpisode, syncAccount } from '../actions';
+import {
+  Route,
+  Link,
+  Switch
+} from 'react-router-dom';
+import ShowCard from './ShowCard.js';
+import { syncAccount } from '../actions';
 
 import Modal from './Modal.js';
 import SearchDisplay from './SearchDisplay.js';
+import TrackedShowsDisplay from './TrackedShowsDisplay.js';
+import CalendarDisplay from './CalendarDisplay.js'
 
 class AccountPage extends React.PureComponent {
   constructor(props) {
@@ -22,13 +28,10 @@ class AccountPage extends React.PureComponent {
     }
   }
 
-  handleToggle = (showId, episodeId) => {
-    this.props.toggleEpisode(showId, episodeId);
-  }
-
-  addShow = () => {
+  showModal = () => {
     this.setState({ showModal: true });
   }
+
 
   hideModal = () => {
     this.setState({ showModal: false });
@@ -39,28 +42,34 @@ class AccountPage extends React.PureComponent {
   }
 
   render() {
-    const { user, shows } = this.props;
+    const { sync } = this.props;
+
     return (
       <React.Fragment>
+
+      <br />
+      <button onClick={this.showModal}>Add Show</button>
 
       <Modal show={this.state.showModal} close={this.hideModal}>
         <SearchDisplay />
       </Modal>
 
+      <div>
+        <Link to="/me/shows">Shows</Link>
+        ||
+        <Link to="/me/calendar">Calendar</Link>
+      </div>
+
+      <Switch>
+        <Route path="/me/shows" component={TrackedShowsDisplay} />
+        <Route path="/me/calendar" component={CalendarDisplay} />
+      </Switch>
+
       <br />
-      <button onClick={this.addShow}>Add Show</button>
-      <br />
-      <button onClick={this.reload}>Reload</button>
+      <button onClick={this.props.sync}>Reload</button>
       <a href="/logout">Logout</a>
 
-      {
-        Object.values(shows).map(show =>
-          <ShowDisplay
-            key={show.id}
-            show={show}
-            toggle={this.handleToggle}/>
-        )
-      }
+
       </React.Fragment>
     )
   }
@@ -68,15 +77,12 @@ class AccountPage extends React.PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    shows: state.trackedShows,
     user: state.user
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleEpisode: (showId, episodeId) =>
-      dispatch(toggleEpisode({ showId, episodeId })),
     sync: () => dispatch(syncAccount())
   }
 }

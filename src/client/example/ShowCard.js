@@ -5,13 +5,17 @@ import EpisodeButtons from './EpisodeButtons.js';
 
 
 
-const ShowDisplay = (props) => {
-  const { show, toggle } = props;
+const ShowCard = (props) => {
+  const { show, toggle, untrack } = props;
   const { watchedEpisodes } = show;
 
   return (
     <React.Fragment>
-      <p>{show.name}</p>
+      <p>
+      {show.name}
+      <button onClick={() => untrack(show.id)}>Remove</button>
+      </p>
+
       <ul>
         {
           <EpisodeButtons
@@ -25,10 +29,11 @@ const ShowDisplay = (props) => {
   )
 }
 
-ShowDisplay.propTypes = {
+ShowCard.propTypes = {
   show: PropTypes.object.isRequired,
-  toggle: PropTypes.func.isRequired
+  toggle: PropTypes.func.isRequired,
+  untrack: PropTypes.func.isRequired
 }
 
-export default ShowDisplay;
+export default ShowCard;
 

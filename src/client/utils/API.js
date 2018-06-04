@@ -28,10 +28,11 @@ export default class API {
   }
 
   static getShow({ id }) {
-    return axios.get(`http://api.tvmaze.com/shows/${id}?embed=episodes`)
+    return axios.get(`http://api.tvmaze.com/shows/${id}?embed[]=episodes&embed[]=nextepisode`)
       .then(res => res.data)
       .then(show => {
         show.episodes = mapToIds(show._embedded.episodes);
+        show.nextepisode = show._embedded.nextepisode;
         delete show._embedded;
         return show;
       });

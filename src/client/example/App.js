@@ -24,13 +24,11 @@ class App extends React.PureComponent {
   render() {
     return (
       <Router>
-        <React.Fragment>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/me" component={AccountPage} />
-            <Route component={NotFound} />
-          </Switch>
-        </React.Fragment>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/me" component={AccountPage} />
+          <Route component={NotFound} />
+        </Switch>
       </Router>
     );
   }
