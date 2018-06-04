@@ -170,7 +170,7 @@ export function syncAccount() {
   return async (dispatch, getState) => {
     const trackedShows = await API.getUserShows();
     const showIds = new Set();
-    trackedShows.forEach(show => showIds.add(show._id));
+    trackedShows.forEach(show => showIds.add(parseInt(show._id)));
 
     // untrack all shows not tracked on account
     Object.keys(getState().trackedShows).forEach(id => {

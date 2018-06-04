@@ -7,8 +7,9 @@ const CalendarDisplay = (props) => {
   const { shows } = props;
   const upcomming = Object.values(shows)
     .filter(show => !!show.nextepisode)
-
-  console.log(upcomming)
+    .sort((a, b) =>
+      new Date(a.nextepisode.airdate) > new Date(b.nextepisode.airdate));
+  // console.log(upcomming)
 
   return (
     <React.Fragment>

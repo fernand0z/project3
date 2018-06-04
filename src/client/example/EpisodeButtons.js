@@ -17,6 +17,10 @@ const EpisodeButtons = (props) => {
     seasons[season].push(episode);
   });
 
+  const markSeason = (index) => {
+    seasons[index].forEach(episode => onClick(episode.id));
+  }
+
   return (
     seasons.map((season,index) => (
       <div key={index}>
@@ -33,6 +37,7 @@ const EpisodeButtons = (props) => {
             </Button>
           )
         })}
+        <button onClick={() => markSeason(index)}>All</button>
       </div>
     ))
   )

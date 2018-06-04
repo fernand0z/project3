@@ -35,7 +35,7 @@ const ShowInfo = styled.div`
     color: #333;
 `;
 
-const RemoveBtn = styled.div`
+const RemoveBtn = styled.button`
     border: 1px solid #333;
     float: right;
     background-color: green;
@@ -46,8 +46,8 @@ const RemoveBtn = styled.div`
 class ShowCard extends React.Component {
 
 static propTypes = {
-    data: PropTypes.object.required,
-    // onRemove: PropTypes.func.required
+    data: PropTypes.object.isRequired,
+    // onRemove: PropTypes.func.isRequired
 }
 
 render() {
@@ -64,8 +64,8 @@ render() {
                 <p>Day: {this.props.data.schedule.days}</p>
                 <p>Time: {this.props.data.schedule.time}</p>
             </ShowInfo>
+            <RemoveBtn>Remove</RemoveBtn>
             </WrapperCard>
-            <RemoveBtn />
         </div>
     </div>
     );

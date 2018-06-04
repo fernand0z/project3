@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import {
   Route,
   Link,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom';
 import ShowCard from './ShowCard.js';
 import { syncAccount } from '../actions';
@@ -63,6 +64,7 @@ class AccountPage extends React.PureComponent {
       <Switch>
         <Route path="/me/shows" component={TrackedShowsDisplay} />
         <Route path="/me/calendar" component={CalendarDisplay} />
+        <Redirect from="/me" to="/me/shows" />
       </Switch>
 
       <br />

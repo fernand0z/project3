@@ -5,14 +5,13 @@ import { toggleEpisode, untrackShow } from '../actions';
 import ShowCard from './ShowCard.js';
 
 const TrackedShowsDisplay = (props) => {
-
   const { shows, toggleEpisode, untrackShow } = props;
   return Object.values(shows).map(show =>
       <ShowCard
         key={show.id}
         show={show}
         untrack={untrackShow}
-        toggle={toggleEpisode}/>
+        toggle={toggleEpisode} />
   )
 }
 
