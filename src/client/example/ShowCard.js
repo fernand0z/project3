@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import EpisodeButtons from './EpisodeButtons.js';
-import LindseyShowCard from '../components/ShowCard/index.js';
 
 
 const ShowCard = (props) => {
   const { show, toggle, untrack } = props;
   const { watchedEpisodes } = show;
 
+  // return <LindseyShowCard show={show}/>
   return (
     <React.Fragment>
       <p>
@@ -19,9 +19,7 @@ const ShowCard = (props) => {
       <ul>
         {
           <EpisodeButtons
-            episodes={show.episodes}
-            watchedEpisodes={watchedEpisodes}
-            onClick={(epId) => toggle(show.id, epId)}
+            show={show}
           />
         }
       </ul>
@@ -31,7 +29,6 @@ const ShowCard = (props) => {
 
 ShowCard.propTypes = {
   show: PropTypes.object.isRequired,
-  toggle: PropTypes.func.isRequired,
   untrack: PropTypes.func.isRequired
 }
 

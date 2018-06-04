@@ -1,8 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import { createPortal } from "react-dom";
 import styled, { keyframes } from "styled-components";
 import { slideInDown, zoomIn } from "react-animations";
 import PropTypes from "prop-types";
+
+import { untrackShow } from '../../actions';
+
+import EpisodeButtons from '../../example/EpisodeButtons.js';
 
 const WrapperCard = styled.div`
   background-color: #777;
@@ -29,7 +34,7 @@ const ShowTitle = styled.div`
 `;
 
 const ShowImage = styled.img`
-  height: 83%;
+  height: 75%;
   float: left;
   margin-left: 1%;
   margin-right: 2%;
@@ -48,28 +53,23 @@ padding: 1% 2%;
 font-size: 16px;
 margin-left: 1%;
 &:hover {
-  font-weight: bold;  
+  font-weight: bold;
   box-shadow: 2px 4px 8px 0 rgba(150, 150, 150, 0.4), 2px 4px 20px 0 rgba(70, 41, 137, 0.4);
 };
 `;
 
+
 const RemoveBtn = styled.button`
-    border: 1px solid #333;
-    float: right;
-    background-color: green;
-    width: 20%;
-    height: 10%;
+  float: right;
 `;
 
 class ShowCard extends React.Component {
-  // static propTypes = {
-  //     show: PropTypes.object.required
-  // }
+  static propTypes = {
+    show: PropTypes.object.isRequired
+  }
 
-static propTypes = {
-    data: PropTypes.object.isRequired,
-    // onRemove: PropTypes.func.isRequired
-}
+  render() {
+    const { show, untrackShow } = this.props;
 
     return (
       <div>
@@ -79,16 +79,31 @@ static propTypes = {
             <ShowImage src={show.image.medium} alt="showImage" />
             <ShowInfo>
               <p>Status: {show.status}</p>
-              <p>Network: {show.network.name}</p>
-              <p>Day: {show.schedule.days}</p>
-              <p>Time: {show.schedule.time}</p>
+              <p>Network: {show.network && show.network.name}</p>
+              <p>Day: {show.schedule && show.schedule.days}</p>
+              <p>Time: {show.schedule && show.schedule.time}</p>
             </ShowInfo>
-            <RemoveBtn>Remove</RemoveBtn>
-            </WrapperCard>
+            <EpisodeButtons show={show} />
+          <RemoveBtn onClick={() => untrackShow(show.id)}>Remove</RemoveBtn>
+          </WrapperCard>
         </div>
       </div>
     );
   }
 }
 
-export default ShowCard;
+const mapStateToProps = (state) => {
+  return {
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    untrackShow: (id) => dispatch(untrackShow({ id }))
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ShowCard);
