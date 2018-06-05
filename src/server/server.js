@@ -23,6 +23,7 @@ if(process.env.NODE_ENV !== 'production') {
 
   app.use(require('webpack-hot-middleware')(compiler));
 }
+
 // parse json
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());

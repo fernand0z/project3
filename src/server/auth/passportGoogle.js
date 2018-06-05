@@ -2,7 +2,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const db = require('../models/index');
 const callbackURL = process.env.NODE_ENV === 'production' ?
-  '' :
+  'https://project-3-12314.herokuapp.com/' :
   'http://localhost:3000/login/google/return';
 
 passport.use(new GoogleStrategy({
