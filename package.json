@@ -39,7 +39,7 @@
     "client": "webpack-dev-server --config ./config/webpack.dev.js",
     "server": "nodemon src/server/server.js",
     "start": "node src/server/server.js",
-    "devServer": "concurrently \"yarn server\" && \"yarn client\"",
+    "devServer": "concurrently \"yarn server\" && \"yarn client\""
   },
   "dependencies": {
     "animate.css": "^3.6.1",
