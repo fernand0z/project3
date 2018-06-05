@@ -40,8 +40,6 @@
     "server": "nodemon src/server/server.js",
     "start": "node src/server/server.js",
     "devServer": "concurrently \"yarn server\" && \"yarn client\"",
-    "heroku-prebuild": "yarn",
-    "heroku-postbuild": "yarn build"
   },
   "dependencies": {
     "animate.css": "^3.6.1",
