@@ -12,37 +12,49 @@ import EpisodeButtons from "../../example/EpisodeButtons.js";
 const WrapperCard = styled.div`
   background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
   height: auto;
-  width: 85%;
-  margin-left: 10%;
-  margin-top: 3%;
+  width: 45%;
+  align-content: center;
+  margin-left: 3.5%;
+  float: left;
+  font-family: 'Raleway';
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  padding-bottom: 1.5%;
-  border: 1px solid #555;
-  box-shadow: 5px 10px purple;
+  padding-bottom: 3%;
+  color: white;
+  margin-bottom: 20%;
+  box-shadow: 5px 10px #fc00ff;
   animation: 1s ${props => keyframes`${props.show ? slideInDown : zoomIn}`};
 `;
 
 const ShowTitle = styled.div`
-  margin-top: 0;
+ 
   font-size: 60px;
   text-align: center;
   background-color: #2079b0;
-  color: #999;
+  color: #white;
   width: 100%;
+  margin-bottom: 1%;
+  font-weight: bold;  
+  text-shadow: 2px 2px 5px black;
 `;
 
 const ShowImage = styled.img`
   height: 10%;
   float: left;
-  margin-left: 0;
+  margin-left: 2%;
+  margin-top: 1%;
   margin-right: 2%;
+  box-shadow: 4px 4px 5px black;
 `;
 
 const ShowInfo = styled.div`
-  color: #333;
-  text-align: center;
+  color: #white;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 6%;
+  margin-top: 2%;
+  text-shadow: 2px 2px 5px black;
 `;
 
 const AddButtons = styled.button`
@@ -53,8 +65,9 @@ const AddButtons = styled.button`
     #8d0b93 30%,
     #321575 100%
   );
-  border: 0 solid white;
+  border: none;
   padding: 1% 2%;
+  color: white;
   font-size: 16px;
   margin-left: 1%;
   &:hover {
@@ -66,6 +79,14 @@ const AddButtons = styled.button`
 
 const RemoveBtn = styled.button`
   float: right;
+  border: none;
+  margin-right: 1%;
+  color: white;
+  margin-bottom: -10%;
+  
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  padding: 0.5%;
+  margin-top: 3%;
 `;
 
 class ShowCard extends React.Component {
@@ -73,11 +94,13 @@ class ShowCard extends React.Component {
     show: PropTypes.object.isRequired
   };
 
+  
+
   render() {
     const { show, untrackShow } = this.props;
-
+    let imageURL = show.image.medium || 'http://via.placeholder.com/150x350';
     return (
-      <div>
+      
         <div>
           <WrapperCard>
             <ShowTitle>{show.name}</ShowTitle>
@@ -92,7 +115,7 @@ class ShowCard extends React.Component {
             <RemoveBtn onClick={() => untrackShow(show.id)}>Remove</RemoveBtn>
           </WrapperCard>
         </div>
-      </div>
+      
     );
   }
 }

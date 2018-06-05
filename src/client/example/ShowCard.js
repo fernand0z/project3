@@ -11,10 +11,10 @@ const ShowCard = (props) => {
   // return <LindseyShowCard show={show}/>
   return (
     <React.Fragment>
-      <p>
+      <ShowP>
       {show.name}
       <button onClick={() => untrack(show.id)}>Remove</button>
-      </p>
+      </ShowP>
 
       <ul>
         {
@@ -31,6 +31,12 @@ ShowCard.propTypes = {
   show: PropTypes.object.isRequired,
   untrack: PropTypes.func.isRequired
 }
+
+const ShowP = styled.p`
+color: white;
+font-weight: bold;
+`;
+
 
 export default ShowCard;
 

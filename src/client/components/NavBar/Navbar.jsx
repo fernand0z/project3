@@ -9,6 +9,7 @@ import './animate.css';
 import logoimg from '../images/Picture1.png';
 
 
+
 const bounceAnimation = keyframes`${bounce}`;
 
 const Navbar = props => (
@@ -21,7 +22,7 @@ const Navbar = props => (
       <NavGoogleDiv>
         <div className='animated bounceIn'>
         {props.user.exists ? 
-          <span>Logged in</span> :
+          <SpanRight>Logged in</SpanRight> :
           <NavGoogle href="/login/google">Sign in with Google</NavGoogle>
         }
         
@@ -53,10 +54,11 @@ const Logo = styled.img`
   width: 25%;
   position: fixed;
   margin-top: -3%;
-  
-  
 `;
-
+const SpanRight = styled.span`
+  color: white;
+  font-family: 'Raleway';
+`;
 const NavLeft = styled.div`
   color: white;
   width: 20%;

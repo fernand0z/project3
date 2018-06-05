@@ -8,7 +8,7 @@ import ShowCard from './ShowCard/Showcard.jsx';
 class SearchPage extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = { query: '' }
+    this.state = { query: '', searching: false }
     this.searchShows = debounce(props.searchShows, 500);
   }
   handleChange = (e) => {
@@ -57,11 +57,11 @@ class SearchPage extends React.PureComponent {
 
       </SearchSpan>
 
-
-      {trackedShows.map(show => {
-        // const show = kv[1];
-        return <ShowCard key={show.id} show={show} />
-      })}
+          {/* Remove rendering of card below search results div */}
+      {/* // {trackedShows.map(show => { */}
+      {/* //   // const show = kv[1];
+      //   return <ShowCard key={show.id} show={show} />
+      // })} */}
       </React.Fragment>
       
     )
@@ -150,6 +150,7 @@ margin-left: -2%;
   font-family: 'Alegreya Sans';
 }
 `;
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

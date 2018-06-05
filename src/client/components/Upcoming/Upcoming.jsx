@@ -1,17 +1,44 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import ShowCard from '../Showcard'
 
-import styled from "styled-components";
+const CalendarDisplay = (props) => {
+  const { shows } = props;
+  const upcomming = Object.values(shows)
+    .filter(show => !!show.nextepisode)
+    .sort((a, b) =>
+      new Date(a.nextepisode.airdate) > new Date(b.nextepisode.airdate));
+  // console.log(upcomming)
 
-class Upcoming extends React.Component {
+  return (
+    <React.Fragment>
+      <h1>Upcoming Episodes</h1>
+      {upcomming.map(show => {
+        const e = show.nextepisode;
+        return <div key={show.id}>
 
-render() {
-    return (
-        <div>
-            Upcoming Episodes
-            </div>
-
-    );
-    }
+          <h2>{show.name}: {e.name}</h2>
+          Date:{e.airdate} Time:{e.airtime}
+        </div>
+      })}
+    </React.Fragment>
+  )
 }
-export default Upcoming
-// ========================STYLED-COMPONENTS CSS======================================
+
+const mapStateToProps = (state) => {
+  return {
+    shows: state.trackedShows,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CalendarDisplay);

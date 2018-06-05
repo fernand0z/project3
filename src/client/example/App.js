@@ -36,6 +36,7 @@ class App extends React.PureComponent {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
+          
           <AuthRoute auth={user.exists} path="/me" component={AccountPage} />
           <Route component={NotFound} />
         </Switch>
