@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import styled, { keyframes, css } from 'styled-components';
 import { fadeIn, fadeOut, slideInRight, slideOutRight } from 'react-animations';
 import PropTypes from 'prop-types';
+import
 
   // display: ${ props => props.display ? 'block' : 'none' };
 const Background = styled.div`
@@ -40,6 +41,7 @@ class Modal extends React.PureComponent {
   constructor(props) {
     super(props);
     this.el = document.createElement('div');
+    this.state = { show: false }
   }
 
   static propTypes = {
@@ -67,6 +69,7 @@ class Modal extends React.PureComponent {
 
         <Tray show={this.props.show}>
           {this.props.children}
+          <SearchPage />
         </Tray>
       </Background>,
       this.el
