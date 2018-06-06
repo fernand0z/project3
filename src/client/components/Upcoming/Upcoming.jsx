@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ShowCard from '../Showcard'
 
-const CalendarDisplay = (props) => {
+const Upcoming = (props) => {
   const { shows } = props;
+  console.log('upcoming compons net');
   const upcomming = Object.values(shows)
     .filter(show => !!show.nextepisode)
     .sort((a, b) =>
@@ -41,4 +41,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CalendarDisplay);
+)(Upcoming);

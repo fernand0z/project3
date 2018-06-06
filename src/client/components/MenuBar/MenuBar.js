@@ -1,8 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import styled from "styled-components";
 import Summary from "../Summary";
-import CalendarDisplay from "../Upcoming";
+import Upcoming from "../Upcoming";
 import Settings from "../Setting";
 // import { slideInDown, zoomIn } from "react-animations";
 
@@ -23,9 +23,10 @@ class MenuBar extends React.Component {
         </MenuWrapper>
             <div>
                 <Switch>
-                    <Route path="/" component={Summary} />
-                    <Route path="/upcoming" component={CalendarDisplay} />
+                    <Route path="/summary" component={Summary} />
+                    <Route path="/upcoming" component={Upcoming} />
                     <Route path="/settings" component={Settings} />
+                    <Redirect from="/" to="/summary" />
                 </Switch> 
             </div>
         </React.Fragment>
