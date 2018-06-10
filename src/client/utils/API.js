@@ -22,13 +22,13 @@ export default class API {
   }
 
   static searchShows(query) {
-    return axios.get(`http://api.tvmaze.com/search/shows?q=${query}`)
+    return axios.get(`https://api.tvmaze.com/search/shows?q=${query}`)
       .then(res => res.data)
       .then(data => data.map(entry => entry.show));
   }
 
   static getShow({ id }) {
-    return axios.get(`http://api.tvmaze.com/shows/${id}?embed[]=episodes&embed[]=nextepisode`)
+    return axios.get(`https://api.tvmaze.com/shows/${id}?embed[]=episodes&embed[]=nextepisode`)
       .then(res => res.data)
       .then(show => {
         show.episodes = mapToIds(show._embedded.episodes);
@@ -39,7 +39,7 @@ export default class API {
   }
 
   static getEpisodes({ id }) {
-    return axios.get(`http://api.tvmaze.com/shows/${id}/episodes`)
+    return axios.get(`https://api.tvmaze.com/shows/${id}/episodes`)
       .then(res => res.data)
       .then(mapToIds);
   }
