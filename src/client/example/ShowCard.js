@@ -35,6 +35,7 @@ ShowCard.propTypes = {
 const ShowP = styled.p`
 color: white;
 font-weight: bold;
+font-size: 24px;
 `;
 
 
