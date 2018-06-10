@@ -98,7 +98,7 @@ class ShowCard extends React.Component {
 
   render() {
     const { show, untrackShow } = this.props;
-    let imageURL = show.image.medium || 'http://via.placeholder.com/150x350';
+    let imageURL = show.image.medium || 'https://via.placeholder.com/150x350';
     return (
       
         <div>
