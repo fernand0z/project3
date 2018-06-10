@@ -28,7 +28,6 @@ if(process.env.NODE_ENV !== 'production') {
   }));
 }
 
-
 // parse json
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
