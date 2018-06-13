@@ -10,6 +10,7 @@ import logoimg from '../images/Picture1.png';
 
 
 
+
 const bounceAnimation = keyframes`${bounce}`;
 
 const Navbar = props => (
@@ -22,7 +23,7 @@ const Navbar = props => (
       <NavGoogleDiv>
         <div className='animated bounceIn'>
         {props.user.exists ? 
-          <SpanRight>Logged in</SpanRight> :
+          <SpanRight>{props.user.name} <LogoutButton href='/logout'>Logout</LogoutButton></SpanRight> :
           <NavGoogle href="/login/google">Sign in with Google</NavGoogle>
         }
         
@@ -59,6 +60,21 @@ const SpanRight = styled.span`
   color: white;
   font-family: 'Raleway';
 `;
+
+const LogoutButton = styled.a`
+padding: 2%;
+border-radius: 5px;
+font-size: 14px;
+text-align: right;
+text-decoration: none;
+float: right;
+align-content: center;
+color: gray;
+margin-top: 0%;
+margin-right: 1%;
+font-weight: normal;
+`;
+
 const NavLeft = styled.div`
   color: white;
   width: 20%;

@@ -5,7 +5,7 @@ const Profile = (props) => {
   const { user } = props;
 
   if(user.exists) {
-    return <h1>{ user.name }</h1>;
+    return <span>{ user.name }</span>;
   } else {
     return <h1>Not logged in</h1>
   }
