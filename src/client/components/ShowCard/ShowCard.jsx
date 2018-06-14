@@ -29,14 +29,18 @@ const WrapperCard = styled.div`
 
 const ShowTitle = styled.div`
  
-  font-size: 60px;
+  font-size: 50px;
+  font-family: Raleway;
+  letter-spacing: 1px;
   text-align: center;
   background-color: #2079b0;
   color: #white;
   width: 100%;
   margin-bottom: 1%;
+  padding: 1% 0%;
   font-weight: bold;  
-  text-shadow: 2px 2px 5px black;
+  text-shadow: 0px 0px 10px black;
+  
 `;
 
 const ShowImage = styled.img`

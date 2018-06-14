@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink, Link, Switch, Redirect } from "react-router-dom";
 import styled from "styled-components";
 import Summary from "../Summary";
 import Upcoming from "../Upcoming";
@@ -12,13 +12,27 @@ class MenuBar extends React.Component {
         <React.Fragment>
         <MenuWrapper>
             <MenuTitle1>
-                <Link to="/summary" style={{textDecoration: 'none', color: 'white', fontFamily: 'Raleway'}}>Summary</Link>
+                <NavLink to="/summary" 
+                activeStyle= {{textShadow: '3px 0px 5px rgba(50,50,50,0.9)', fontWeight: 'bold'}} 
+                style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Raleway'}}>
+                Summary
+                </NavLink>
             </MenuTitle1>
+            
             <MenuTitle2>
-                <Link to="/upcoming"style={{textDecoration: 'none', color: 'white', fontFamily: 'Raleway'}} >Upcoming</Link>
+                <NavLink to="/upcoming" 
+                activeStyle= {{textShadow: '3px 0px 5px rgba(50,50,50,0.9)', fontWeight: 'bold'}}
+                style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Raleway'}}>
+                Upcoming
+                </NavLink>
             </MenuTitle2>
+            
             <MenuTitle3>
-                <Link to="/settings" style={{textDecoration: 'none', color: 'white', fontFamily: 'Raleway' }}>Settings</Link>
+                <NavLink to="/settings"
+                activeStyle= {{textShadow: '3px 0px 5px rgba(50,50,50,0.9)', fontWeight: 'bold'}}
+                style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Raleway'}}>
+                Settings
+                </NavLink>
             </MenuTitle3>
         </MenuWrapper>
             <div>
@@ -54,6 +68,7 @@ const MenuTitle1 = styled.div`
     color: white;
     text-decoration: none !important;
     font-weight: bold;
+    padding-left: 70%;
     background-image: linear-gradient(to bottom, #FF057C 0%, #8D0B93 50%, #321575 100%);
 `;
 
@@ -75,6 +90,7 @@ const MenuTitle3 = styled.div`
     text-align: center;
     padding: 8%;
     font-size: 28px;
+    padding-right: 70%;
     text-decoration: none;
     color: white;
     font-weight: bold;

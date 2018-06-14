@@ -8,13 +8,26 @@ import '../GlobalStyles';
 import './animate.css';
 import logoimg from '../images/Picture1.png';
 
+// const request = (props) => {
+//   return 
+//   gapi.client.plus.people.get({
+//   'userId' : props.user.google_id
+// });
+
+// request.execute(function(resp) {
+//   console.log('ID: ' + resp.id);
+//   console.log('Display Name: ' + resp.displayName);
+//   console.log('Image URL: ' + resp.image.url);
+//   console.log('Profile URL: ' + resp.url);
+// })
+// };
 
 
 
 const bounceAnimation = keyframes`${bounce}`;
 
 const Navbar = props => (
-  
+    
   <React.Fragment>
     <StyledNav>    
       <NavLeft>
@@ -22,11 +35,13 @@ const Navbar = props => (
       </NavLeft>
       <NavGoogleDiv>
         <div className='animated bounceIn'>
-        {props.user.exists ? 
-          <SpanRight>{props.user.name} <LogoutButton href='/logout'>Logout</LogoutButton></SpanRight> :
-          <NavGoogle href="/login/google">Sign in with Google</NavGoogle>
-        }
-        
+          {props.user.exists ? 
+              <SpanRight>Logged in as  <b>{props.user.name}</b>
+                <LogoutButton href='/logout'>Logout</LogoutButton>
+              </SpanRight> :
+              
+              <NavGoogle href="/login/google">Sign in with Google</NavGoogle>
+          }
         </div>
       </NavGoogleDiv>
 
@@ -42,12 +57,19 @@ const Navbar = props => (
 const StyledNav = styled.div`
   width: 100%;
   position: fixed;
-  background: linear-gradient(rgba(0,0,0,0.90) 5%, rgba(0,0,0,.01)); 
+  background: linear-gradient(rgba(0,0,0, .98) 30%, 
+    rgba(0, 0, 0, 0.9) 60%,
+    rgba(0, 0, 0, 0.82) 70%,
+    rgba(0, 0, 0, 0.75) 75%,
+    rgba(0, 0, 0, 0.7) 80%,
+    rgba(0, 0, 0, 0.6) 85%,
+    rgba(0,0,0,.01)); 
   font-size: 20px;
-  padding-bottom: 1%;
+  padding-bottom: 5%;
   padding-top: 1%;
   font-weight: bold;
   color: white;
+  z-index: 10;
   
 `;
 
@@ -59,6 +81,9 @@ const Logo = styled.img`
 const SpanRight = styled.span`
   color: white;
   font-family: 'Raleway';
+  font-weight: normal;
+  text-transform: uppercase;
+  
 `;
 
 const LogoutButton = styled.a`
@@ -69,7 +94,7 @@ text-align: right;
 text-decoration: none;
 float: right;
 align-content: center;
-color: gray;
+color: lightgray;
 margin-top: 0%;
 margin-right: 1%;
 font-weight: normal;
@@ -94,6 +119,7 @@ float: right;
 padding: 2.5% 0;
 padding-right: 1%
 fontFamily: 'Raleway';
+margin-top: 0.25%;
 `;
 
 const NavGoogle = styled.a`

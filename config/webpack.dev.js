@@ -51,6 +51,17 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         use: ['file-loader']
       },
+      {
+        test: /\.(mov|mp4)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'beer.mov'
+            }  
+          }
+        ]
+      }
     ],
     
   },

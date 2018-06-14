@@ -139,11 +139,12 @@ padding: 2%;
 color: white; 
 margin: auto;
 background-color: transparent;
-border: 2px solid rgba(50, 50, 50, 0.4);
+border: 3px solid rgba(50, 50, 50, 0.4);
 border-radius: 30px;
 text-align: center;
 width: 100%;
-font-size: 18px;
+font-size: 22px;
+text-transform: uppercase;
 margin-left: -2%;
 &::-webkit-input-placeholder {
   color: darkgray;
