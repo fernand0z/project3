@@ -65,7 +65,7 @@ const StyledNav = styled.div`
     rgba(0, 0, 0, 0.6) 85%,
     rgba(0,0,0,.01)); 
   font-size: 20px;
-  padding-bottom: 5%;
+  padding-bottom: 1%;
   padding-top: 1%;
   font-weight: bold;
   color: white;

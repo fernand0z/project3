@@ -14,24 +14,26 @@ const Wrapper = props => (
             <BgVideo autoPlay loop id="video-background" muted playsinline>
                 <source src={video} type="video/mp4" />
             </BgVideo>
-            
+                    
     </div>
-    <WrapperDiv>Here's the other wrapperdiv </WrapperDiv>
+    
   </React.Fragment>
 );
 
 // =====================================STYLED-COMPONENTS CSS=======================================
 const WrapperDiv = styled.div`
   height: 100%;
-  display: flex;
+  
   padding-bottom: 0%;
-  padding-top: 0%;
+  padding-top: 50%;
   margin-bottom: 0%;
   margin-left: 0%;
   color: white;
   font-size: 16px;
-  justify-content: space-around;
-  align-content: flex-start;
+  
+  
+  
+  background: none;
   
 `;
 

@@ -54,7 +54,7 @@ const MenuWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(100px, auto);
-    margin-top: -1%;
+    margin-top: 0%;
     align-items: center;
     padding-top: 0%;
 `;
@@ -62,13 +62,12 @@ const MenuWrapper = styled.div`
 const MenuTitle1 = styled.div`
     grid-column: 1;
     grid-row: 1;
-    text-align: center;
+    text-align: right;
     padding: 8%;
     font-size: 28px;
     color: white;
     text-decoration: none !important;
     font-weight: bold;
-    padding-left: 70%;
     background-image: linear-gradient(to bottom, #FF057C 0%, #8D0B93 50%, #321575 100%);
 `;
 
@@ -87,10 +86,9 @@ const MenuTitle2 = styled.div`
 const MenuTitle3 = styled.div`
     grid-column: 3;
     grid-row: 1;
-    text-align: center;
+    text-align: left;
     padding: 8%;
     font-size: 28px;
-    padding-right: 70%;
     text-decoration: none;
     color: white;
     font-weight: bold;

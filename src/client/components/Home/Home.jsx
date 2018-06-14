@@ -4,6 +4,7 @@ import Navbar from "../Navbar";
 import Wrapper from "../Wrapper";
 import styled from "styled-components";
 import MenuBar from "../MenuBar";
+import IntroText from "../IntroText";
 
 class Home extends Component {
   render() {
@@ -12,6 +13,7 @@ class Home extends Component {
         <Wrapper>
           <Navbar />
         </Wrapper>
+        <IntroText />
         <MenuBar />
       </React.Fragment>
     );
