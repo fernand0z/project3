@@ -36,7 +36,7 @@ const Navbar = props => (
       <NavGoogleDiv>
         <div className='animated bounceIn'>
           {props.user.exists ? 
-              <SpanRight>Logged in as  <b>{props.user.name}</b>
+              <SpanRight>Logged in as  <span style={{fontSize: '14px'}}><b>{props.user.name}</b></span>
                 <LogoutButton href='/logout'>Logout</LogoutButton>
               </SpanRight> :
               
@@ -64,7 +64,7 @@ const StyledNav = styled.div`
     rgba(0, 0, 0, 0.7) 80%,
     rgba(0, 0, 0, 0.6) 85%,
     rgba(0,0,0,.01)); 
-  font-size: 14px;
+  font-size: 12px;
   padding-bottom: 0%;
   padding-top: 0%;
   font-weight: bold;

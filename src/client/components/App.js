@@ -46,9 +46,6 @@ const ViewProfile = connect(
   state => state
 )(Profile);
 
-const RedText = styled.div`color: red`;
-const Test = () => <RedText>testesrgeragreag</RedText>
-
 const NotFound = () => (
   <h1>404 not found</h1>
 )

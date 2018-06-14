@@ -10,7 +10,7 @@ import { untrackShow } from "../../actions";
 import EpisodeButtons from "../../example/EpisodeButtons.js";
 
 const WrapperCard = styled.div`
-  background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
+  background-image: linear-gradient(to bottom, #fff 25%, #330867);
   height: auto;
   width: 45%;
   align-content: center;
@@ -29,7 +29,7 @@ const WrapperCard = styled.div`
 
 const ShowTitle = styled.div`
  
-  font-size: 50px;
+  font-size: 30px;
   font-family: Raleway;
   letter-spacing: 1px;
   text-align: center;

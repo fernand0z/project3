@@ -46,7 +46,7 @@ class SearchPage extends React.PureComponent {
                     <ResultA href={ show.url } target="_blank">{ show.name }</ResultA>
                     <AddButton
                       onClick={() => this.addShow(show)}>
-                      Add
+                      +
                     </AddButton>
                   </p>
                   </ResultDiv>
@@ -110,7 +110,9 @@ padding: 0% 1%;
 const ResultA = styled.a`
 color: white !important;
 text-decoration: none;
-margin-right: 2%;
+margin-right: -17%;
+align-content: center;
+font-size: 16px;
 &:hover {
   -webkit-animation: mymove 5s infinite; 
     animation: mymove 1s infinite;
@@ -118,17 +120,22 @@ margin-right: 2%;
       50% {letter-spacing: 1px;}
   };
   text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
-  font-size: 21px;
+  font-size: 16px;
   font-family: 'Libre Franklin', sans-serif;
 };
 `;
 const AddButton = styled.button`
 color: white;
-background-image: linear-gradient(to bottom, #FF057C 0%, #8D0B93 30%, #321575 100%);
+
+background-color: #330867 !important;
 border: none;
-padding: 1% 2%;
-font-size: 16px;
+padding: .75% 1.85%;
+font-size: 14px;
+font-weight: bold;
+border-radius: 125px;
 margin-left: 1%;
+float: right;
+margin-right: 10%;
 &:hover {
   font-weight: bold;  
   box-shadow: 2px 4px 8px 0 rgba(150, 150, 150, 0.4), 2px 4px 20px 0 rgba(70, 41, 137, 0.4);

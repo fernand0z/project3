@@ -15,6 +15,7 @@ class MenuBar extends React.Component {
                 <NavLink to="/summary" 
                 activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '22px', fontWeight: '800', fontFamily: 'Montserrat'}} 
                 style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Montserrat'}}>
+                
                 Summary
                 </NavLink>
             </MenuTitle1>

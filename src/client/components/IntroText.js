@@ -40,6 +40,7 @@ const SecondaryText = styled.p`
     margin-top: 2%;
     text-shadow: 0px 0px 20px rgba(8, 80, 120);
     letter-spacing: .75px;
+
 `;
 
 export default IntroText;
