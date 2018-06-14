@@ -13,7 +13,7 @@ class MenuBar extends React.Component {
         <MenuWrapper>
             <MenuTitle1>
                 <NavLink to="/summary" 
-                activeStyle= {{textShadow: '3px 0px 5px rgba(50,50,50,0.9)', fontWeight: 'bold'}} 
+                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontWeight: 'bold', letterSpacing: '2px'}} 
                 style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Raleway'}}>
                 Summary
                 </NavLink>
@@ -21,7 +21,7 @@ class MenuBar extends React.Component {
             
             <MenuTitle2>
                 <NavLink to="/upcoming" 
-                activeStyle= {{textShadow: '3px 0px 5px rgba(50,50,50,0.9)', fontWeight: 'bold'}}
+                activeStyle= {{textShadow: '3px 0px 10px rgba(50,50,50,0.9)', fontWeight: 'bold', letterSpacing: '2px'}}
                 style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Raleway'}}>
                 Upcoming
                 </NavLink>
@@ -29,7 +29,7 @@ class MenuBar extends React.Component {
             
             <MenuTitle3>
                 <NavLink to="/settings"
-                activeStyle= {{textShadow: '3px 0px 5px rgba(50,50,50,0.9)', fontWeight: 'bold'}}
+                activeStyle= {{textShadow: '3px 0px 10px rgba(50,50,50,0.9)', fontWeight: 'bold', letterSpacing: '2px'}}
                 style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Raleway'}}>
                 Settings
                 </NavLink>
