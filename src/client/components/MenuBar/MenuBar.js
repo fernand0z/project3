@@ -54,9 +54,11 @@ const MenuWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(100px, auto);
-    margin-top: 0%;
     align-items: center;
-    padding-top: 0%;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-image: linear-gradient(to bottom, #FF057C 0%, #8D0B93 50%, #321575 100%);
+    box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.8), 0px 5px 15px 0 rgba(0, 0, 0, 0.8);
 `;
 
 const MenuTitle1 = styled.div`
@@ -67,8 +69,7 @@ const MenuTitle1 = styled.div`
     font-size: 28px;
     color: white;
     text-decoration: none !important;
-    font-weight: bold;
-    background-image: linear-gradient(to bottom, #FF057C 0%, #8D0B93 50%, #321575 100%);
+    font-weight: bold;    
 `;
 
 const MenuTitle2 = styled.div`
@@ -80,7 +81,7 @@ const MenuTitle2 = styled.div`
     font-size: 28px;
     color: white;
     font-weight: bold;
-    background-image: linear-gradient(to bottom, #FF057C 0%, #8D0B93 50%, #321575 100%);
+
 `;
 
 const MenuTitle3 = styled.div`
@@ -92,7 +93,7 @@ const MenuTitle3 = styled.div`
     text-decoration: none;
     color: white;
     font-weight: bold;
-    background-image: linear-gradient(to bottom, #FF057C 0%, #8D0B93 50%, #321575 100%);
+    
 `;
 
 const ShowTitle = styled.div`

@@ -56,7 +56,7 @@ const Navbar = props => (
 
 const StyledNav = styled.div`
   width: 100%;
-  position: fixed;
+  position: absolute;
   background: linear-gradient(rgba(0,0,0, .98) 30%, 
     rgba(0, 0, 0, 0.9) 60%,
     rgba(0, 0, 0, 0.82) 70%,
@@ -69,13 +69,13 @@ const StyledNav = styled.div`
   padding-top: 1%;
   font-weight: bold;
   color: white;
-  z-index: 10;
+  z-index: 50;
   
 `;
 
 const Logo = styled.img`
   width: 25%;
-  position: fixed;
+  position: absolute;
   margin-top: -3%;
 `;
 const SpanRight = styled.span`
@@ -133,6 +133,7 @@ const NavGoogle = styled.a`
   color: white;
   margin-top: -1%;
   font-weight: normal;
+  margin-right: 3%;
 `;
 
 

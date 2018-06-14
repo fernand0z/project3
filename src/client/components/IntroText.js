@@ -9,7 +9,7 @@ class IntroText extends React.Component {
             <IntroWrapper>
                 Track your favorite TV shows here.
                 <SecondaryText>
-                    Start your search by entering a show above,<br />
+                    Start by searching for a show above,<br />
                     or login to view your previously saved shows.
                 </SecondaryText>
             </IntroWrapper>

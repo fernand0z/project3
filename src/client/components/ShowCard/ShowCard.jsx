@@ -23,7 +23,7 @@ const WrapperCard = styled.div`
   padding-bottom: 3%;
   color: white;
   margin-bottom: 20%;
-  box-shadow: 5px 10px #fc00ff;
+  box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.8);
   animation: 1s ${props => keyframes`${props.show ? slideInDown : zoomIn}`};
 `;
 
@@ -40,7 +40,7 @@ const ShowTitle = styled.div`
   padding: 1% 0%;
   font-weight: bold;  
   text-shadow: 0px 0px 10px black;
-  
+  box-shadow: 0px 8px 12px -5px rgba(0, 0, 0, 0.9)
 `;
 
 const ShowImage = styled.img`
