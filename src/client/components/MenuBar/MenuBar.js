@@ -13,24 +13,24 @@ class MenuBar extends React.Component {
         <MenuWrapper>
             <MenuTitle1>
                 <NavLink to="/summary" 
-                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontWeight: 'bold', letterSpacing: '2px'}} 
-                style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Raleway'}}>
+                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '36px', fontWeight: '800', letterSpacing: '1px', fontFamily: 'Montserrat'}} 
+                style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Montserrat'}}>
                 Summary
                 </NavLink>
             </MenuTitle1>
             
             <MenuTitle2>
                 <NavLink to="/upcoming" 
-                activeStyle= {{textShadow: '3px 0px 10px rgba(50,50,50,0.9)', fontWeight: 'bold', letterSpacing: '2px'}}
-                style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Raleway'}}>
+                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '36px', fontWeight: '800', letterSpacing: '1px', fontFamily: 'Montserrat'}} 
+                style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Montserrat'}}>
                 Upcoming
                 </NavLink>
             </MenuTitle2>
             
             <MenuTitle3>
                 <NavLink to="/settings"
-                activeStyle= {{textShadow: '3px 0px 10px rgba(50,50,50,0.9)', fontWeight: 'bold', letterSpacing: '2px'}}
-                style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Raleway'}}>
+                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '36px', fontWeight: '800', letterSpacing: '1px', fontFamily: 'Montserrat'}} 
+                style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Montserrat'}}>
                 Settings
                 </NavLink>
             </MenuTitle3>
@@ -57,7 +57,7 @@ const MenuWrapper = styled.div`
     align-items: center;
     padding-left: 10%;
     padding-right: 10%;
-    background-image: linear-gradient(to bottom, #FF057C 0%, #8D0B93 50%, #321575 100%);
+    background-image: linear-gradient(to bottom, rgba(8, 80, 120) 60%, #330867 100%);
     box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.8), 0px 5px 15px 0 rgba(0, 0, 0, 0.8);
 `;
 

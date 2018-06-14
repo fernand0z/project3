@@ -44,17 +44,16 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 // =====================================STYLED-COMPONENTS CSS=======================================
 const SummaryDiv=styled.div`
 width: 100%;
+height: 100%;
 background: linear-gradient(270deg, purple, #ffffff, purple, #06002f, purple);
     background-size: 1000% 1000%;
-    height: 500px;
+    height: 100%;
     background: linear-gradient(270deg, #06002f, #06002f, #ffffff, #ffffff, #000000, #000000);
     background-size: 1200% 1200%;
     -webkit-animation: AnimationName 59s ease infinite;
     -moz-animation: AnimationName 59s ease infinite;
     animation: AnimationName 59s ease infinite;
-        
-    }
-    
+            
     @-webkit-keyframes AnimationName {
         0% {
             background-position: 0% 50%
@@ -91,11 +90,11 @@ background: linear-gradient(270deg, purple, #ffffff, purple, #06002f, purple);
         }
     }
 margin: auto;
-padding-bottom: 50%;
+padding-bottom: 100%;
 text-align: center;
 align-items: center;
 padding-top: 2%;
-justify-content: center;
+
 `;
 const ResultDiv = styled.div`
 background-color: rgba(50, 50, 50, 0.4);

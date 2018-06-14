@@ -6,7 +6,7 @@ import styled, { keyframes } from "styled-components";
 import SearchPage from "../SearchPage";
 import '../GlobalStyles';
 import './animate.css';
-import logoimg from '../images/Picture1.png';
+import logoimg from '../images/Picture2.png';
 
 // const request = (props) => {
 //   return 
@@ -74,9 +74,10 @@ const StyledNav = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 25%;
+  width: 22%;
   position: absolute;
-  margin-top: -3%;
+  margin-left: 1%;
+  margin-top: -1.75%;
 `;
 const SpanRight = styled.span`
   color: white;
@@ -94,10 +95,11 @@ text-align: right;
 text-decoration: none;
 float: right;
 align-content: center;
-color: lightgray;
+color: rgba(68, 140, 180);
 margin-top: 0%;
 margin-right: 1%;
 font-weight: normal;
+text-shadow: 0 0 2px darkgray;
 `;
 
 const NavLeft = styled.div`

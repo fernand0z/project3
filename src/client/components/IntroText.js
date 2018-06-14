@@ -32,13 +32,13 @@ const IntroWrapper = styled.span`
     font-size: 45px;
     font-weight: bold;
     background: transparent;
-    text-shadow: 0px 0px 15px #321575;
+    text-shadow: 0px 0px 20px rgba(8, 80, 120);
 `;
 
 const SecondaryText = styled.p`
     font-size: 28px;
     margin-top: 2%;
-    text-shadow: 0px 0px 15px #321575;
+    text-shadow: 0px 0px 20px rgba(8, 80, 120);
     letter-spacing: .75px;
 `;
 
