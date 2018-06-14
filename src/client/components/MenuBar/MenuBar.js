@@ -13,7 +13,7 @@ class MenuBar extends React.Component {
         <MenuWrapper>
             <MenuTitle1>
                 <NavLink to="/summary" 
-                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '36px', fontWeight: '800', letterSpacing: '1px', fontFamily: 'Montserrat'}} 
+                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '22px', fontWeight: '800', fontFamily: 'Montserrat'}} 
                 style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Montserrat'}}>
                 Summary
                 </NavLink>
@@ -21,7 +21,7 @@ class MenuBar extends React.Component {
             
             <MenuTitle2>
                 <NavLink to="/upcoming" 
-                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '36px', fontWeight: '800', letterSpacing: '1px', fontFamily: 'Montserrat'}} 
+                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '22px', fontWeight: '800', fontFamily: 'Montserrat'}} 
                 style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Montserrat'}}>
                 Upcoming
                 </NavLink>
@@ -29,7 +29,7 @@ class MenuBar extends React.Component {
             
             <MenuTitle3>
                 <NavLink to="/settings"
-                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '36px', fontWeight: '800', letterSpacing: '1px', fontFamily: 'Montserrat'}} 
+                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '22px', fontWeight: '800', fontFamily: 'Montserrat'}} 
                 style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Montserrat'}}>
                 Settings
                 </NavLink>
@@ -53,7 +53,7 @@ class MenuBar extends React.Component {
 const MenuWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(100px, auto);
+    grid-auto-rows: minmax(70px, auto);
     align-items: center;
     padding-left: 10%;
     padding-right: 10%;
@@ -65,8 +65,9 @@ const MenuTitle1 = styled.div`
     grid-column: 1;
     grid-row: 1;
     text-align: right;
-    padding: 8%;
-    font-size: 28px;
+    padding-left: 8%;
+    padding-right: 8%;
+    font-size: 18px;
     color: white;
     text-decoration: none !important;
     font-weight: bold;    
@@ -77,23 +78,24 @@ const MenuTitle2 = styled.div`
     grid-row: 1;
     text-align: center;
     text-decoration: none;
-    padding: 8%;
-    font-size: 28px;
+    padding-left: 8%;
+    padding-right: 8%;
+    font-size: 18px;
     color: white;
     font-weight: bold;
-
+    
 `;
 
 const MenuTitle3 = styled.div`
     grid-column: 3;
     grid-row: 1;
     text-align: left;
-    padding: 8%;
-    font-size: 28px;
+    padding-left: 8%;
+    padding-right: 8%;
+    font-size: 18px;
     text-decoration: none;
     color: white;
     font-weight: bold;
-    
 `;
 
 const ShowTitle = styled.div`

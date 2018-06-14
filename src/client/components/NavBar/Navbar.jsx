@@ -64,9 +64,9 @@ const StyledNav = styled.div`
     rgba(0, 0, 0, 0.7) 80%,
     rgba(0, 0, 0, 0.6) 85%,
     rgba(0,0,0,.01)); 
-  font-size: 20px;
-  padding-bottom: 1%;
-  padding-top: 1%;
+  font-size: 14px;
+  padding-bottom: 0%;
+  padding-top: 0%;
   font-weight: bold;
   color: white;
   z-index: 50;
@@ -79,6 +79,7 @@ const Logo = styled.img`
   margin-left: 1%;
   margin-top: -1.75%;
 `;
+
 const SpanRight = styled.span`
   color: white;
   font-family: 'Raleway';
@@ -90,7 +91,7 @@ const SpanRight = styled.span`
 const LogoutButton = styled.a`
 padding: 2%;
 border-radius: 5px;
-font-size: 14px;
+font-size: 12px;
 text-align: right;
 text-decoration: none;
 float: right;
@@ -128,7 +129,7 @@ const NavGoogle = styled.a`
   
   padding: 2%;
   border-radius: 5px;
-  font-size: 22px;
+  font-size: 14px;
   text-align: right;
   text-decoration: none;
   float: right;
