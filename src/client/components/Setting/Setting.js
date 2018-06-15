@@ -1,46 +1,48 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import styled from "styled-components";
+import React from "react";
+import { connect } from "react-redux";
+import styled, { keyframes } from "styled-components";
 
-const Upcoming = (props) => {
-  const { shows } = props;
-  console.log('upcoming compons net');
-  const upcomming = Object.values(shows)
-    .filter(show => !!show.nextepisode)
-    .sort((a, b) =>
-      new Date(a.nextepisode.airdate) > new Date(b.nextepisode.airdate));
-  // console.log(upcomming)
-  
+import "../GlobalStyles";
 
-  return (
+const Setting = props => (
     <React.Fragment>
-      <UpcomingWrapper>
-      <h1>Upcoming Episodes</h1>
-      {upcomming.map(show => {
-        const e = show.nextepisode;
-        const summaryP = (show.summary).slice(3, -4);
-        console.log('Episode summary' + show.summary);
-        return <EpisodeCard key={show.id}>
+        <SettingsWrapper>
+            <LoginDiv>
+                <ProfileCard>
+                    <h2 style={{textShadow: '1px 1px 3px rgba(0,0,0,.4)'}}>Profile Settings</h2>
+                    {props.user.exists ? (
+                    <SpanRight>
+                        Currently signed-in as {"  "}
+                        <span style={{ fontSize: "19px", fontWeight: 'bold', color: 'purple' }}>
+                        <b style={{marginLeft: '5px'}}>{props.user.name}</b>
+                        </span>
+                        <LogoutButton href="/logout">Logout</LogoutButton>
+                    </SpanRight>
+                    ) : (
+                    <NavGoogle href="/login/google">Click to sign-in with Google</NavGoogle>
+                    )}
+                </ProfileCard>
+            </LoginDiv>
 
-          <ShowName>{show.name}</ShowName><br />
-          <EpisodeName>{e.name}</EpisodeName><br />
-          <span>{e.summary}</span>
-          <hr />
-          Episode Airs: {e.airdate} | Time:{e.airtime}
-          <hr /><br />
-          <span style={{textAlign: 'center', width: '100%'}}>Show Details</span><br />
-          <hr />
-          {summaryP}
-        </EpisodeCard>
-      })}
-      </UpcomingWrapper>
+                <ProfileCard>
+                    <h2 style={{textShadow: '1px 1px 3px rgba(0,0,0,.4)', marginBottom: '0%'}}>Notification Settings</h2>
+                        <SpanRight>
+                            <span style={{ fontSize: "14px", fontWeight: 'bold', color: 'red', marginTop: '-3%'}}>
+                            <b style={{marginLeft: '22%'}}>Coming Soon!</b>
+                            </span>
+                        </SpanRight>
+                </ProfileCard>
+            
+
+        </SettingsWrapper>
     </React.Fragment>
-  )
-}
+);
 
-const UpcomingWrapper = styled.div`
+// =====================================STYLED-COMPONENTS CSS=======================================
+
+const SettingsWrapper = styled.div`
 position: relative;
+box-sizing: border-box;
 width: 100%;
 padding-left: 3%;
 padding-right: 3%;
@@ -53,45 +55,77 @@ padding-top: 2%;
 vertical-align: baseline;
 `;
 
-const EpisodeCard = styled.div`
+const SpanRight = styled.span`
+  color: black;
+  font-family: "Raleway";
+  font-weight: normal;
+  text-transform: uppercase;
+  font-weight: bold;
+`;
+
+const LogoutButton = styled.a`
+  padding: 2%;
+  border-radius: 5px;
+  font-size: 12px;
+  text-align: right;
+  text-decoration: none;
+  float: right;
+  align-content: center;
+  color: white;
+  margin-top: 0%;
+  margin-right: 1%;
+  font-weight: bold;
+  letter-spacing: .75px;
+  text-shadow: 0 0 2px darkgray;
+  background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+`;
+
+const LoginDiv = styled.span`
+  width: 100%;
+  float: left;
+  padding: 2.5% 0;
+  padding-right: 1%
+  fontFamily: 'Raleway';
+  margin-top: 0.25%;
+  `;
+
+const NavGoogle = styled.a`
+  padding: 2%;
+  border-radius: 5px;
+  font-size: 19px;
+  text-align: right;
+  text-decoration: none;
+  float: left;
+  color: purple;
+  margin-top: -1%;
+  font-weight: bold;
+  margin-right: 3%;
+`;
+
+const ProfileCard = styled.div`
 text-align: left;
-float: left;
+float: center;
 margin: 1%;
 margin-bottom: 2%;
 background: white;
 padding: 2%;
 color: rgba(8, 80, 120);
-width: 30%;
-padding-bottom: 1%;
+width: 50%;
+padding-bottom: 4%;
 `;
 
-const ShowName = styled.span`
-font-size: 24px;
-font-weight: bold;
-margin-bottom: 1%;
-`;
-
-const EpisodeName = styled.span`
-font-size: 20px;
-font-weight: bold;
-margin-bottom: 1%;
-
-`;
-
-
-const mapStateToProps = (state) => {
+// ==========================REDUX MAPPING STATE AND DISPATCHING===============================
+const mapStateToProps = state => {
   return {
-    shows: state.trackedShows,
-  }
-}
+    user: state.user
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-
-  }
-}
+const mapDispatchToProps = dispatch => {
+  return {};
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Upcoming);
+)(Setting);

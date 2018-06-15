@@ -46,10 +46,10 @@ const SummaryDiv=styled.div`
 width: 100%;
 height: 100%;
 background: linear-gradient(270deg, purple, #ffffff, purple, #06002f, purple);
-    background-size: 1000% 1000%;
+    background-size: 500% 500%;
     height: 100%;
-    background: linear-gradient(270deg, #06002f, #06002f, #ffffff, #ffffff, #000000, #000000);
-    background-size: 1200% 1200%;
+    background: linear-gradient(270deg, #06002f, #06002f, rgba(38, 110, 150), rgba(38, 110, 150), rgba(31, 29, 29), rgba(31, 29, 29));
+    background-size: 700% 700%;
     -webkit-animation: AnimationName 59s ease infinite;
     -moz-animation: AnimationName 59s ease infinite;
     animation: AnimationName 59s ease infinite;

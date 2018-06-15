@@ -20,7 +20,7 @@ const Upcoming = (props) => {
       {upcomming.map(show => {
         const e = show.nextepisode;
         const summaryP = (show.summary).slice(3, -4);
-        console.log('Episode summary' + show.summary);
+        
         return <EpisodeCard key={show.id}>
 
           <ShowName>{show.name}</ShowName><br />

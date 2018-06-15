@@ -10,7 +10,7 @@ class IntroText extends React.Component {
                 Track your favorite TV shows here.
                 <SecondaryText>
                     Start by searching for a show above,<br />
-                    or login to view your previously saved shows.
+                    or sign-in to view your previously saved shows.
                 </SecondaryText>
             </IntroWrapper>
         </React.Fragment>

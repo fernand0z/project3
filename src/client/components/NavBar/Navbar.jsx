@@ -1,30 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-// import "./navbar.css";
-import { bounce } from "react-animations";
 import styled, { keyframes } from "styled-components";
 import SearchPage from "../SearchPage";
 import '../GlobalStyles';
 import './animate.css';
 import logoimg from '../images/Picture2.png';
-
-// const request = (props) => {
-//   return 
-//   gapi.client.plus.people.get({
-//   'userId' : props.user.google_id
-// });
-
-// request.execute(function(resp) {
-//   console.log('ID: ' + resp.id);
-//   console.log('Display Name: ' + resp.displayName);
-//   console.log('Image URL: ' + resp.image.url);
-//   console.log('Profile URL: ' + resp.url);
-// })
-// };
-
-
-
-const bounceAnimation = keyframes`${bounce}`;
 
 const Navbar = props => (
     
@@ -140,7 +120,7 @@ const NavGoogle = styled.a`
 `;
 
 
-
+// ==========================REDUX MAPPING STATE AND DISPATCHING===============================
 const mapStateToProps = state => {
   return {
     user: state.user

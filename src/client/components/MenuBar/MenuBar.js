@@ -13,8 +13,8 @@ class MenuBar extends React.Component {
         <MenuWrapper>
             <MenuTitle1>
                 <NavLink to="/summary" 
-                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '22px', fontWeight: '800', fontFamily: 'Montserrat'}} 
-                style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Montserrat'}}>
+                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '22px', color: 'white', fontWeight: '800', fontFamily: 'Montserrat'}} 
+                style={{textDecoration: 'none', fontWeight: 'normal', fontSize: '22px', color: 'rgba(255,255,255,.4)', fontWeight: '800', fontFamily: 'Montserrat'}}>
                 
                 Summary
                 </NavLink>
@@ -22,16 +22,16 @@ class MenuBar extends React.Component {
             
             <MenuTitle2>
                 <NavLink to="/upcoming" 
-                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '22px', fontWeight: '800', fontFamily: 'Montserrat'}} 
-                style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Montserrat'}}>
+                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '22px', color: 'white', fontWeight: '800', fontFamily: 'Montserrat'}} 
+                style={{textDecoration: 'none', fontWeight: 'normal', fontSize: '22px', color: 'rgba(255,255,255,.4)', fontWeight: '800', fontFamily: 'Montserrat'}}>
                 Upcoming
                 </NavLink>
             </MenuTitle2>
             
             <MenuTitle3>
                 <NavLink to="/settings"
-                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '22px', fontWeight: '800', fontFamily: 'Montserrat'}} 
-                style={{textDecoration: 'none', fontWeight: 'normal', color: 'white', fontFamily: 'Montserrat'}}>
+                activeStyle= {{textShadow: '3px 3px 10px rgba(50,50,50,0.9)', fontSize: '22px', color: 'white', fontWeight: '800', fontFamily: 'Montserrat'}} 
+                style={{textDecoration: 'none', fontWeight: 'normal', fontSize: '22px', color: 'rgba(255,255,255,.4)', fontWeight: '800', fontFamily: 'Montserrat'}}>
                 Settings
                 </NavLink>
             </MenuTitle3>
