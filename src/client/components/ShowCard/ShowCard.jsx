@@ -32,7 +32,7 @@ const ShowTitle = styled.div`
   font-family: Raleway;
   letter-spacing: 1px;
   text-align: center;
-  background-color: #330867;
+  background-color: purple;
   color: #white;
   width: 100%;
   margin-bottom: 1%;
