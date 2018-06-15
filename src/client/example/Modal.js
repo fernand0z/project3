@@ -6,18 +6,18 @@ import PropTypes from 'prop-types';
 import
 
   // display: ${ props => props.display ? 'block' : 'none' };
-const Background = styled.div`
-  visibility: ${ props => props.show ? 'visible' : 'hidden' };
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  transition: visibility 1s linear;
-  animation: 1s ${props => keyframes`${ props.show ? fadeIn : fadeOut }`};
-`;
+// const Background = styled.div`
+//   visibility: ${ props => props.show ? 'visible' : 'hidden' };
+//   position: fixed;
+//   z-index: 1;
+//   left: 0;
+//   top: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: rgba(0,0,0,0.5);
+//   transition: visibility 1s linear;
+//   animation: 1s ${props => keyframes`${ props.show ? fadeIn : fadeOut }`};
+// `;
 
 
   // visibility: ${ props => props.show ? 'visible' : 'hidden' };

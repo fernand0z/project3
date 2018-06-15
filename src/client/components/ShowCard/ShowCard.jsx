@@ -10,7 +10,7 @@ import { untrackShow } from "../../actions";
 import EpisodeButtons from "../../example/EpisodeButtons.js";
 
 const WrapperCard = styled.div`
-  background-image: linear-gradient(to bottom, #fff 25%, #330867);
+  background-image: linear-gradient(to bottom, black 25%, rgba(62, 151, 206));
   height: auto;
   width: 45%;
   align-content: center;
@@ -22,18 +22,17 @@ const WrapperCard = styled.div`
   padding-top: 0;
   padding-bottom: 3%;
   color: white;
-  
+  margin-bottom: 1.5%;
   box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.8);
-  animation: 1s ${props => keyframes`${props.show ? slideInDown : zoomIn}`};
+  animation: 1.5s ${props => keyframes`${props.show ? slideInDown : zoomIn}`};
 `;
 
 const ShowTitle = styled.div`
- 
   font-size: 30px;
   font-family: Raleway;
   letter-spacing: 1px;
   text-align: center;
-  background-color: #2079b0;
+  background-color: #330867;
   color: #white;
   width: 100%;
   margin-bottom: 1%;
@@ -58,7 +57,7 @@ const ShowInfo = styled.div`
   text-align: left;
   margin-left: 6%;
   margin-top: 2%;
-  text-shadow: 2px 2px 5px black;
+  
 `;
 
 const AddButtons = styled.button`
@@ -109,13 +108,13 @@ class ShowCard extends React.Component {
           <WrapperCard>
             <ShowTitle>{show.name}</ShowTitle>
             <ShowImage src={show.image.medium} alt="showImage" />
-            <EpisodeButtons show={show} />
             <ShowInfo>
               <p>Status: {show.status}</p>
               <p>Network: {show.network && show.network.name}</p>
               <p>Day: {show.schedule && show.schedule.days}</p>
               <p>Time: {show.schedule && show.schedule.time}</p>
             </ShowInfo>
+            <EpisodeButtons show={show} />
             <RemoveBtn onClick={() => untrackShow(show.id)}>Remove</RemoveBtn>
           </WrapperCard>
         </div>
